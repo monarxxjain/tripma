@@ -19,6 +19,14 @@
   color: #7C8DB0;
 }
 
+.full-shadow{
+  box-shadow: 0 0 10px -1px #7C8DB0;
+}
+
+.hide-scroller::-webkit-scrollbar{
+  display: none;
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;

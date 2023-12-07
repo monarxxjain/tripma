@@ -1,13 +1,16 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from "next/image"
 import Link from "next/link"
 import TripmaLogo from "@/assets/icons/tripma-logo.svg"
 
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false)
-    console.log(window.location.pathname)
-    const route = window.location.pathname
+    const [route, setRoute] = useState()
+
+    useEffect(()=>{
+      setRoute(window.location.pathname)
+    },[])
 
   return (
     <div className='flex justify-between items-center px-6 py-2'>

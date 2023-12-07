@@ -18,3 +18,19 @@
 .text-grey-custom{
   color: #7C8DB0;
 }
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 400ms; /* Adjust the duration as needed */
+  animation-iteration-count: 1;
+}
+

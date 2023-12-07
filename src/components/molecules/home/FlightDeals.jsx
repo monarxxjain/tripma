@@ -16,7 +16,7 @@ const FlightDeals = () => {
       </div>
 
       <section className='flex flex-col gap-10'>
-        <div className='flex gap-10'>
+        <div className='flex gap-10 justify-center'>
             <Card type="deal" image={Deal1} heading="The Bund" city="Shanghai" amount="$598" description={"China’s most international city"} />
             <Card type="deal" image={Deal2} heading="Sydney Opera House" city="Sydney" amount="$981" description={"Take a stroll along the famous harbor"} />
             <Card type="deal" image={Deal3} heading="Kōdaiji Temple" city="Kyoto" amount="$633" description={"Step back in time in the Gion district"} />

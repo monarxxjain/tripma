@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
+import Calender from '../molecules/home/calender/Calender';
 const InputSearch = ({ icon, placeHolder, options }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
@@ -78,7 +79,11 @@ const InputSearch = ({ icon, placeHolder, options }) => {
         </div>
       )}
 
-    {/* {isOptionsVisible && placeHolder=="Depart - Return" && <FlightBookingCalendar/>} */}
+    {isOptionsVisible && placeHolder=="Depart - Return" && 
+        <div className='relative'>
+          <Calender setSelectedValue={setSelectedValue} setIsOptionsVisible={setIsOptionsVisible}/>
+        </div>
+    }
 
     </div>
   );

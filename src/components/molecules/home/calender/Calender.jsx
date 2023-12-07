@@ -1,14 +1,21 @@
 import moment from 'moment';
-import 'moment/locale/it';
+// import 'moment/locale/en';
 import { useEffect, useState } from 'react';
 import { BsArrowLeft, BsArrowRight } from 'react-icons/bs';
 import CalenderItem from './CalenderItem';
+import Image from 'next/image'
+import RightArrow from '@/assets/icons/right-arrow.png'
+import LeftArrow from '@/assets/icons/left-arrow.png'
+import CalenderIcon from '@/assets/icons/calendar.svg'
 
-export default function Calender({ handler, setCheckData, setConfig, config }) {
+export default function Calender({setSelectedValue, setIsOptionsVisible}) {
     useEffect(() => {
-        // Set Italian as the default locale
-        moment.locale('it');
+        moment.locale('en');
     }, []);
+
+  const today = new Date();
+  const nextWeek = new Date();
+  nextWeek.setDate(today.getDate() + 7);
 
     const [firstMon, setFirstMon] = useState({
         year: new Date().getFullYear(),
@@ -21,7 +28,7 @@ export default function Calender({ handler, setCheckData, setConfig, config }) {
 
     const [firstSelection, setFirstSelection] = useState(true);
 
-    const [selectDate, setSelectDate] = useState([config.checkInDate, config.checkOutDate]);
+    const [selectDate, setSelectDate] = useState([]);
 
     const selectHandler = (e) => {
         setSelectDate((prev) => {
@@ -73,65 +80,58 @@ export default function Calender({ handler, setCheckData, setConfig, config }) {
         });
     };
 
-    const submitHandler = () => {
-        const data = {
-            start: new Date(selectDate[0]),
-            end: new Date(selectDate[1]),
-        };
-        if (selectDate.length === 2) {
-            setCheckData(data);
-            setConfig({
-                ...config,
-                checkInDate: data.start,
-                checkOutDate: data.end,
-                fascio: { name: 'Tutti', value: 0 },
-                distance: { name: 'Tutti', value: 0 },
-                comune: { name: "Tutta l'isola" },
-                stelle: { name: 'Tutti' },
-            });
-            handler(false);
-        }
-    };
-
-    const [night, setNight] = useState();
-    useEffect(() => {
-        setNight(
-            Math.ceil((new Date(selectDate[1]).getTime() - new Date(selectDate[0]).getTime()) / (1000 * 60 * 60 * 24))
-        );
-    }, [selectDate]);
-
     const [screenW, setScreenW] = useState(window.innerWidth);
     useEffect(() => {
         setScreenW(window.innerWidth);
     }, [screenW]);
 
-    return (
-        <div className="calender-wrp">
-            <div className="calender">
-                <div className="calender-head">
-                    <div className="btn">
-                        {selectDate?.length === 2 && (
-                            <a href="#">{(night && night === 1 && night + ' notte') || night + ' notti'}</a>
-                        )}
-                    </div>
+    const handleSubmit = () => {
+        setSelectedValue(`${moment(selectDate[0]).format('DD MMM')} to ${moment(selectDate[1]).format('DD MMM')}`)
+    }
 
-                    <strong>
-                        Date Selezionate:{' '}
-                        {selectDate?.length === 2 &&
-                            `${moment(selectDate[0]).format('DD MMMM')} to ${moment(selectDate[1]).format('DD MMMM')}`}
-                    </strong>
+    return (
+        <div className="calender-wrp bg-white rounded-lg  full-shadow absolute left-[-262px] top-[-60px] border-[#7C8DB0]">
+            <div className='flex justify-between gap-8 w-max items-center p-4 border-b-2 border-b-[#7c8db07d]'>
+                <div className='flex items-center'>
+                    <input type='radio' id='round-trip' value={"Round Trip"} name="trip-type"/>
+                    <label className='text-grey-custom ms-2' for="round-trip">Round Trip</label>
+                    <input className='ms-5' type='radio' id='one-way' value={"One way"} name="trip-type"/>
+                    <label className='text-grey-custom ms-2' for="one-way">One way</label>
                 </div>
-                <div className="calender-body">
+                <div className='flex gap-1 items-center'>
+                    <div
+                        className={`flex items-center gap-2 shadow-md py-1 px-3 rounded-md border-[#605DEC] border-2 pointer-events-none`}
+                    >
+                        <Image src={CalenderIcon} />
+                        <input
+                            className='outline-0 bg-transparent'
+                            type='text'
+                            value={`${moment(selectDate[0]).format('DD MMM')} - ${moment(selectDate[1]).format('DD MMM')}`}
+                            placeholder={"Depart - Return"}
+                        />
+                    </div>
+                    <button className='bg-purple-blue h-min text-white rounded-md py-2.5 px-5 active:scale-95 transition-all' onClick={()=>{handleSubmit; setIsOptionsVisible(false)}}>Done</button>
+                </div>
+            </div>
+            <div className="calender p-4">
+                <div className="calender-body flex items-center gap-4">
                     <div className="arrow-btns">
                         <button onClick={firstArrow}>
-                            <BsArrowLeft />
-                        </button>
-                        <button onClick={lastArrow}>
-                            <BsArrowRight />
+                            <Image src={LeftArrow} height={35}/>
                         </button>
                     </div>
-                    <CalenderItem data={firstMon} select={{ selectDate, handler: selectHandler }} />
-                    {screenW > 600 && <CalenderItem data={lasttMon} select={{ selectDate, handler: selectHandler }} />}
+                    
+                    <div className='flex gap-16'>
+                        <CalenderItem data={firstMon} select={{ selectDate, handler: selectHandler }} />
+                        {screenW > 600 && <CalenderItem data={lasttMon} select={{ selectDate, handler: selectHandler }} />}
+
+                    </div>
+
+                    <div className="arrow-btns ms-5">
+                        <button onClick={lastArrow}>
+                            <Image src={RightArrow} height={35}/>
+                        </button>
+                    </div>
                 </div>
                 {/* <div className="calender-footer">
                     <div className="calender-footer-color">

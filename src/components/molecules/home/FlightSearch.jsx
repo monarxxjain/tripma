@@ -16,7 +16,7 @@ const FlightSearch = () => {
       <InputSearch icon={FromFlight} placeHolder="From where?" options={fromOptions} />
       <InputSearch icon={ToFlight} placeHolder="Where to?" options={toOptions} />
       <InputSearch icon={CalenderIcon} placeHolder="Depart - Return" />
-      <InputSearch icon={ProfileIcon} placeHolder="1 Adult" options={adultOptions} />
+      <InputSearch icon={ProfileIcon} placeHolder="1 Adult" />
       <button className='bg-purple-blue h-min text-white rounded-md py-2 px-5 active:scale-95 transition-all'>Search</button>
     </div>
   )

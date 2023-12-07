@@ -6,7 +6,8 @@ const InputSearch = ({ icon, placeHolder, options }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [selectedValue, setSelectedValue] = useState('');
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
-
+  const [adultCount, setAdultCount] = useState(1)
+  const [childCount, setChildCount] = useState(0)
   const inputRef = useRef(null);
 
   const handleFocus = () => {
@@ -84,6 +85,30 @@ const InputSearch = ({ icon, placeHolder, options }) => {
           <Calender setSelectedValue={setSelectedValue} setIsOptionsVisible={setIsOptionsVisible}/>
         </div>
     }
+
+    {isOptionsVisible && placeHolder=="1 Adult" && <div className='bg-white rounded-lg p-4 mt-1 full-shadow'>
+        <div className='flex justify-between items-center'>
+          <div className='text-[#7C8DB0]'>Adults:</div>
+          <div className='flex items-center justify-between gap-3'>
+            <div className='text-purple-blue text-3xl tracking-[-5px] me-1 cursor-pointer' onClick={()=>{if(adultCount!==0){
+              setAdultCount(adultCount-1)
+            }}}>--</div>
+            <div className='text-2xl text-[#7C8DB0]'>{adultCount}</div>
+            <div className='text-purple-blue text-3xl cursor-pointer' onClick={()=>setAdultCount(adultCount+1)}>+</div>
+          </div>
+        </div>
+        <div className='flex justify-between items-center'>
+          <div className='text-[#7C8DB0]'>Minors:</div>
+          <div className='flex items-center justify-between gap-3'>
+            <div className='text-purple-blue text-3xl tracking-[-5px] me-1 cursor-pointer' onClick={()=>{if(childCount!==0){
+              setChildCount(childCount-1)
+            }}}>--</div>
+            <div className='text-2xl text-[#7C8DB0]'>{childCount}</div>
+            <div className='text-purple-blue text-3xl cursor-pointer' onClick={()=>setChildCount(childCount+1)}>+</div>
+          </div>
+        </div>
+        
+      </div>}
 
     </div>
   );

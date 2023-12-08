@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Luggage from '@/assets/images/Luggage.svg'
 import Airline from '@/assets/images/airline.png'
@@ -7,6 +7,38 @@ import TextField from '@mui/material/TextField';
 
 const PassangerInfo = () => {
     const [checkedBags, setCheckedBags] = useState(0)
+    const [copyData, setCopyData] = useState(false)
+    const [seatSelectActive, setSeatSelectActive] = useState(false)
+    const [passInfo, setPassInfo] = useState({
+        firstName: "",
+        middleName: "",
+        lastName: "",
+
+        suffix: "",
+        dob: "",
+
+        email: "",
+        phoneNo: "",
+
+        redressNo: "",
+        knownTravellerNo: "",
+
+        emergencyFirstName: "",
+        emergencyLastName: "",
+        emergencyEmail: "",
+        emergencyPhoneNo: "",
+
+
+        bags: ""
+        
+    })
+
+    useEffect(()=>{
+        console.log(passInfo)
+      if(passInfo.firstName!='' && passInfo.lastName!='' && passInfo.dob!='' && passInfo.email!='' && passInfo.phoneNo!='' && passInfo.knownTravellerNo!='' && passInfo.emergencyFirstName!='' && passInfo.emergencyLastName!='' && passInfo.emergencyEmail!='' && passInfo.emergencyPhoneNo!='') {
+        setSeatSelectActive(true)
+      }
+    },[passInfo])
 
     const flights = [
         {
@@ -43,12 +75,14 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, firstName: e.target.value}))}}
                         required
                     />
                     <TextField
                         label="Middle name"
                         id="outlined-size-small"
                         defaultValue=""
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, middleName: e.target.value}))}}
                         size="small"
                     />
                     <TextField
@@ -56,6 +90,7 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, lastName: e.target.value}))}}
                         required
                     />
                 </div>
@@ -64,6 +99,7 @@ const PassangerInfo = () => {
                         label="Suffix"
                         id="outlined-size-small"
                         defaultValue=""
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, suffix: e.target.value}))}}
                         size="small"
                     />
                     <div>
@@ -72,6 +108,7 @@ const PassangerInfo = () => {
                             id="outlined-size-small"
                             defaultValue=""
                             size="small"
+                            onChange={(e)=>{setPassInfo(prevState=>({...prevState, dob: e.target.value}))}}
                             required
                         />
                         <p className='mt-1 text-xs'>MM/DD/YY</p>
@@ -84,6 +121,7 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, email: e.target.value}))}}
                         required
                     />
                     <TextField
@@ -91,6 +129,7 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, phoneNo: e.target.value}))}}
                         required
                     />
                 </div>
@@ -100,12 +139,14 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, redressNo: e.target.value}))}}
                     />
                     <TextField
                         label="Known traveller number*"
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, knownTravellerNo: e.target.value}))}}
                         required
                     />
                 </div>
@@ -115,7 +156,14 @@ const PassangerInfo = () => {
                 <h4 className='text-[#6E7491] font-semibold text-lg mt-12'>Emergency contact information</h4>
 
                 <div className='flex gap-2 items-center'>
-                    <input type='checkbox' />
+                    <input type='checkbox' onChange={(e)=>{
+                        if(e.target.checked){
+                            setPassInfo(prevState=>({...prevState, emergencyFirstName: passInfo.firstName, emergencyLastName: passInfo.lastName, emergencyEmail: passInfo.email, emergencyPhoneNo: passInfo.phoneNo}))
+                        }
+                        else{
+                            setPassInfo(prevState=>({...prevState, emergencyFirstName: '', emergencyLastName: '', emergencyEmail: '', emergencyPhoneNo: ''}))
+                        }
+                    }} />
                     <label className='mb-0.5'>Same as Passenger 1</label>
                 </div>
                 <div className='flex gap-6'>
@@ -124,6 +172,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        value={passInfo.emergencyFirstName}
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyFirstName: e.target.value}))}}
                         required
                     />
                     <TextField
@@ -131,6 +181,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        value={passInfo.emergencyLastName}
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyLastName: e.target.value}))}}
                         required
                     />
                 </div>
@@ -140,6 +192,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        value={passInfo.emergencyEmail}
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyEmail: e.target.value}))}}
                         required
                     />
                     <TextField
@@ -147,6 +201,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
+                        value={passInfo.emergencyPhoneNo}
+                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyPhoneNo: e.target.value}))}}
                         required
                     />
                 </div>
@@ -167,10 +223,11 @@ const PassangerInfo = () => {
                 <h4 className='text-[#6E7491] font-semibold text-lg mt-12 mb-2'>Checked bags</h4>
                 <div className='flex items-center gap-3'>
                     <div className='text-purple-blue text-3xl tracking-[-5px] me-1 -mt-1 cursor-pointer select-none' onClick={()=>{if(checkedBags!==0){
-                    setCheckedBags(checkedBags-1)
+                        setCheckedBags(checkedBags-1);
+                        setPassInfo(prevState=>({...prevState, bags: checkedBags-1}))
                     }}}>--</div>
                     <div className='text-2xl text-[#7C8DB0]'>{checkedBags}</div>
-                    <div className='text-purple-blue text-3xl cursor-pointer select-none -mt-1' onClick={()=>setCheckedBags(checkedBags+1)}>+</div>
+                    <div className='text-purple-blue text-3xl cursor-pointer select-none -mt-1' onClick={()=>{setCheckedBags(checkedBags+1); setPassInfo(prevState=>({...prevState, bags: checkedBags+1}))}}>+</div>
                 </div>
             </div>
 
@@ -178,7 +235,7 @@ const PassangerInfo = () => {
 
         <div className='flex gap-6 mt-20'>
             <button className='text-lg px-5 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and close</button>
-            <button className='text-lg px-5 py-3 rounded border border-[#7C8DB0] bg-[#cbd4e64d]'>Select seats</button>
+            <button className={`text-lg px-5 py-3 rounded border ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Select seats</button>
         </div>
       </div>
 
@@ -222,8 +279,8 @@ const PassangerInfo = () => {
                         </div>
                     </div>
                 </div>
-                <div className='self-end'>
-                    <button className='text-lg px-5 py-3 rounded border border-[#7C8DB0] text-[#7C8DB0] bg-[#cbd4e64d]'>Select seats</button>
+                <div className='self-end'>          
+                    <button className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Select seats</button>
                 </div>
             </div>
             <Image src={Luggage} alt='Luggage Dimensions' />

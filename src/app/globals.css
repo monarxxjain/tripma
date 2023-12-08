@@ -31,6 +31,18 @@ input[type=radio]{
   accent-color: #605DEC;
 }
 
+input[type=checkbox]{
+  accent-color: #605DEC;
+}
+
+.Mui-focused{
+  color:#7C8DB0 !important;
+}
+
+.Mui-focused .MuiOutlinedInput-notchedOutline{
+  border-color: #605DEC !important;
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;

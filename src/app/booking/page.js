@@ -8,7 +8,7 @@ export default function Home(){
                 <SideNav />
                 <Plane/>
             </section>
-            <section className="absolute right-0 top-0 w-1/2 h-screen bg-transparent  backdrop-blur">
+            <section className="absolute right-0 top-0 w-1/2 h-screen bg-transparent  backdrop-blur-sm">
                 lwkebgw
             </section>
         </div>

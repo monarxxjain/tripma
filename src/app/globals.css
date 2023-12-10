@@ -43,6 +43,40 @@ input[type=checkbox]{
   border-color: #605DEC !important;
 }
 
+.businessClass{
+  background: linear-gradient(180deg, #5CD6C0 0%, #22C3A6 100%);
+  width: 1.4vw;
+  height: 2vw;
+}
+
+.businessClass:hover{
+  background: #009B7F;
+  cursor: pointer;
+}
+
+.bookedBusinessClass {
+  background-color: #E9E8FC;
+  width: 1.4vw;
+  height: 2vw;
+}
+
+.economyClass {
+  background: linear-gradient(180deg, #605DEC 0%, #2A26D9 100%);
+  width: 1vw;
+  height: 1.5vw;
+}
+
+.economyClass:hover{
+  background: #1513A0;
+  cursor: pointer;
+}
+
+.bookedEconomyClass{
+  background-color: #E9E8FC;
+  width: 1vw;
+  height: 1.5vw;
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;

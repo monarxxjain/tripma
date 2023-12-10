@@ -93,6 +93,14 @@ input[type=checkbox]{
   cursor: pointer;
 }
 
+.purple-gradient {
+  background: linear-gradient(180deg, #605DEC 0%, #2A26D9 100%);
+}
+
+.green-gradient {
+  background: linear-gradient(180deg, #5CD6C0 0%, #22C3A6 100%);
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;

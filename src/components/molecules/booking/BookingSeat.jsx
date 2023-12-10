@@ -1,5 +1,6 @@
 import BookSeatNavigator from '@/components/atoms/BookSeatNavigator'
 import React from 'react'
+import SeatInfo from './SeatInfo'
 
 const BookingSeat = () => {
     const dummyBookingData = {
@@ -23,6 +24,7 @@ const BookingSeat = () => {
   return (
     <div className=''>
       <BookSeatNavigator from={dummyBookingData.from} to={dummyBookingData.to} departDetails={dummyBookingData.departDetails} arrivalDetails={dummyBookingData.arrivalDetails} />
+      <SeatInfo/>
     </div>
   )
 }

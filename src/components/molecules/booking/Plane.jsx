@@ -32,7 +32,7 @@ const Plane = () => {
 
   return (
     <div className='relative'>
-      <Image src={PlaneImage} className='relative ms-[-25vw] z-10' />
+      <Image src={PlaneImage} className='relative 2xl:ms-[-25vw] z-10' />
       <Image src={PlaneEngine} className='absolute w-[9vw] top-1/2 transform -translate-y-[12vw] z-0'/>
       <Image src={PlaneEngine} className='absolute w-[9vw] top-1/2 left-1/2 transform -translate-x-[8vw] -translate-y-[12vw] z-0'/>
       <Image src={LeftPilot} className='absolute w-[3.7vw] top-[10vw] left-1/4 -translate-x-[3.9vw] z-20'/>

@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React, { useRef, useState } from 'react'
 import Image from 'next/image'
 import PlaneImage from '@/assets/icons/plane.svg'
 import PlaneEngine from '@/assets/icons/plane-engine.svg'
@@ -6,6 +7,7 @@ import LeftPilot from '@/assets/icons/left-pilot.svg'
 import RightPilot from '@/assets/icons/right-pilot.svg'
 import PlaneInnerBody from '@/assets/icons/plane-inner-body.svg'
 import InfoIcon from '@/assets/icons/info-icon.svg'
+import Tick from '@/assets/icons/tick.svg'
 
 const Plane = () => {
   const noOfBusinessSeatRows = 5;
@@ -15,7 +17,7 @@ const Plane = () => {
   let businessBlock = [];
 
   for (let index = 0; index < noOfBusinessSeatRows; index++) {
-    businessBlock.push(<BusinessRow index={index}/>)
+    businessBlock.push(<BusinessRow key={index+1} index={index+1}/>)
   }
 
   let economyBlock = [];
@@ -25,7 +27,7 @@ const Plane = () => {
     if(rowNoAfterExitRow.includes(noOfBusinessSeatRows+index+1)){
       isExitRow = true;
     }
-    economyBlock.push(<EconomyRow index={noOfBusinessSeatRows+index} isExitRow={isExitRow}/>)
+    economyBlock.push(<EconomyRow key={noOfBusinessSeatRows+index+1} index={noOfBusinessSeatRows+index+1} isExitRow={isExitRow}/>)
   }
 
   return (
@@ -51,8 +53,43 @@ const Plane = () => {
 }
 
 const Seat = ({variant}) => {
+  const seat = useRef()
+  const [clicked, setClicked] = useState(false)
   return (
-    <div className={`rounded ${variant=="Business" ? "businessClass" : ""} ${variant=="Economy" ? "economyClass" : ""} ${variant=="BookedBusiness" ? "bookedBusinessClass" : ""} ${variant=="BookedEconomy" ? "bookedEconomyClass" : ""}`}></div>
+    <div 
+      ref={seat}
+      className={`rounded flex items-center justify-center
+        ${variant=="Business" ? "businessClass" : ""} 
+        ${variant=="Economy" ? "economyClass" : ""} 
+        ${variant=="BookedBusiness" ? "bookedBusinessClass" : ""} 
+        ${variant=="BookedEconomy" ? "bookedEconomyClass" : ""}`}
+
+        onClick={()=>{
+          setClicked(!clicked)
+          if(variant=="Business"){
+            if(seat.current.classList.contains("businessClass")){
+              seat.current.classList.add("businessClassSelected")
+              seat.current.classList.remove("businessClass")
+            }
+            else{
+              seat.current.classList.remove("businessClassSelected")
+              seat.current.classList.add("businessClass")
+            }
+          }
+          else if(variant=="Economy"){
+            if(seat.current.classList.contains("economyClass")){
+              seat.current.classList.add("economyClassSelected")
+              seat.current.classList.remove("economyClass")
+            }
+            else{
+              seat.current.classList.remove("economyClassSelected")
+              seat.current.classList.add("economyClass")
+            }
+          }
+        }}
+    >
+      {clicked && <Image src={Tick}/>}
+    </div>
   )
 }
 
@@ -64,7 +101,7 @@ const BusinessRow = ({index}) => {
         <Seat variant={"BookedBusiness"}/>
       </div>
       <div className='text-[#7C8DB0] text-sm'>
-        {index+1}
+        {index}
       </div>
       <div className='flex gap-2'>
         <Seat variant={"Business"}/>
@@ -88,7 +125,7 @@ const EconomyRow = ({index, isExitRow}) => {
           <Seat variant={"BookedEconomy"}/>
         </div>
         <div className='text-[#7C8DB0] text-sm text-center w-[10vw]'>
-          {index+1}
+          {index}
         </div>
         <div className='flex gap-1'>
           <Seat variant={"Economy"}/>

@@ -58,6 +58,14 @@ input[type=checkbox]{
   background-color: #E9E8FC;
   width: 1.4vw;
   height: 2vw;
+  pointer-events: none;
+}
+
+.businessClassSelected{
+  background: linear-gradient(180deg, #EB568C 0%, #ED5E76 100%);
+  width: 1.4vw;
+  height: 2vw;
+  cursor: pointer;
 }
 
 .economyClass {
@@ -75,6 +83,14 @@ input[type=checkbox]{
   background-color: #E9E8FC;
   width: 1vw;
   height: 1.5vw;
+  pointer-events: none;
+}
+
+.economyClassSelected{
+  background: linear-gradient(180deg, #EB568C 0%, #ED5E76 100%);
+  width: 1vw;
+  height: 1.5vw;
+  cursor: pointer;
 }
 
 @keyframes fadeOut {

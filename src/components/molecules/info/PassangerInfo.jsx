@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Luggage from '@/assets/images/Luggage.svg'
 import Airline from '@/assets/images/airline.png'
 import TextField from '@mui/material/TextField';
-import Summary from './Summary'
+import Summary from '@/components/atoms/Summary'
 
 const PassangerInfo = () => {
     const [checkedBags, setCheckedBags] = useState(0)
@@ -62,7 +62,7 @@ const PassangerInfo = () => {
   return (
     <div className='px-24 py-14 md:flex md:items-end md:justify-between'>
       <div className='text-[#7C8DB0] md:w-1/2'>
-        <h3 className='text-purple-blue font-semibold text-2xl'>Passanger Information</h3>
+        <h3 className='text-purple-blue font-semibold text-2xl'>Passenger Information</h3>
         <p className='mt-4'>Enter the required information for each traveler and be sure that it exactly matches the government-issued ID presented at the airport.</p>
         
         <form>

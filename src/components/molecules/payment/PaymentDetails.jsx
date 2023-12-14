@@ -2,11 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import Luggage from '@/assets/images/Luggage.svg'
 import Airline from '@/assets/images/airline.png'
 import TextField from '@mui/material/TextField'
 import Summary from '@/components/atoms/Summary'
 import PaymentMethod from '@/components/atoms/PaymentMethod'
+import GoogleIcon from '@/assets/icons/google.svg'
+import AppleIcon from '@/assets/icons/apple-black.svg'
+import FacebookIcon from '@/assets/icons/facebook-blue.svg'
 
 const PaymentDetails = () => {
     const [paymentAllowance, setPaymentAllowance] = useState(false)
@@ -52,15 +54,15 @@ const PaymentDetails = () => {
     ]
 
   return (
-    <div className='px-24 py-14 md:flex md:justify-between'>
-      <div className='text-[#7C8DB0] md:w-1/2'>
-        <h3 className='text-purple-blue font-semibold text-2xl'>Payment Method</h3>
-        <p className='mt-4'>Select a payment method below. Tripma processes your payment securely with end-to-end encryption.</p>
+    <div className='px-24 py-14 md:flex md:justify-between gap-12'>
+      <div className='text-[#7C8DB0] md:w-2/3'>
+        <h3 className='text-purple-blue font-semibold text-2xl w-1/2'>Payment Method</h3>
+        <p className='mt-4 w-2/3'>Select a payment method below. Tripma processes your payment securely with end-to-end encryption.</p>
         
         <PaymentMethod />
 
         <form>
-            <div className='flex flex-col gap-6 w-9/12'>
+            <div className='flex flex-col gap-6 w-1/2'>
                 <h4 className='text-[#6E7491] font-semibold text-lg mt-9'>Credit card details</h4>
 
                 <div className='flex gap-2 items-center'>
@@ -110,7 +112,7 @@ const PaymentDetails = () => {
 
         </form>
 
-        <div className='flex flex-col gap-6'>
+        <div className='flex flex-col gap-6 w-9/12'>
             <h4 className='text-[#6E7491] font-semibold text-lg mt-12'>Create an account</h4>
             <p>Tripma is free to use as a guest, but if you create an account today, you can save and view flights, manage your trips, earn rewards, and more.</p>
             
@@ -140,6 +142,29 @@ const PaymentDetails = () => {
                 />
             </div>
 
+            <div className='flex flex-col gap-3 w-9/12'>
+                <div className='flex gap-2 items-center p-2'>
+                    <div className='h-[2px] w-full bg-[#CBD4E6]'></div>
+                    <div className='text-[#7C8DB0]'>or</div>
+                    <div className='h-[2px] w-full bg-[#CBD4E6]'></div>
+                </div>
+                <button className='flex justify-between items-center gap-1 px-5 py-3 w-full text-[#605DEC] border border-[#605DEC] rounded hover:bg-[#5f5dec13] transition-all active:scale-95'>
+                    <Image src={GoogleIcon} />
+                    <p>Sign up with Google</p>
+                    <p className='invisible'>Hide</p>
+                </button>
+                <button className='flex justify-between items-center gap-1 px-5 py-3 w-full text-[#605DEC] border border-[#605DEC] rounded hover:bg-[#5f5dec13] transition-all active:scale-95'>
+                    <Image src={AppleIcon} />
+                    <p>Continue with Apple</p>
+                    <p className='invisible'>Hide</p>
+                </button>
+                <button className='flex justify-between items-center gap-1 px-5 py-3 w-full text-[#605DEC] border border-[#605DEC] rounded hover:bg-[#5f5dec13] transition-all active:scale-95'>
+                    <Image src={FacebookIcon} />
+                    <p>Continue with Facebook</p>
+                    <p className='invisible'>Hide</p>
+                </button>
+            </div>
+
         </div>
 
         <div>
@@ -153,7 +178,7 @@ const PaymentDetails = () => {
         </div>
       </div>
 
-      <div className='md:w-1/2 flex flex-col mt-32'>
+      <div className='md:w-1/3 flex flex-col mt-32'>
             <div className='mb-28 flex flex-col gap-8'>
                 <Summary flights={flights}/>
                 <div className='self-end'>          

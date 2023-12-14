@@ -13,12 +13,12 @@ export default function Home(){
     const [journey, setJourney] = useState("Departing")
     useEffect(()=>{console.log(selectedSeat)},[selectedSeat])
     return (
-        <div className="2xl:flex 2xl:overflow-hidden">
-            <section className="h-screen overflow-scroll hide-scroller">
+        <div className="xl:flex xl:overflow-hidden">
+            <section className="xl:h-screen xl:overflow-scroll hide-scroller">
                 <SideNav />
                 <Plane selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} />
             </section>
-            <section className="2xl:absolute 2xl:right-0 2xl:top-0 2xl:w-1/2 2xl:h-screen bg-white/50 backdrop-blur-md z-40 border-s border-s-[#CBD4E6] overflow-hidden">
+            <section className="xl:absolute xl:right-0 xl:top-0 xl:w-1/2 xl:h-screen bg-white/50 backdrop-blur-md z-40 border-s border-s-[#CBD4E6] overflow-hidden">
                 <BookingSeat selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} journey={journey} setJourney={setJourney} />
             </section>
         </div>

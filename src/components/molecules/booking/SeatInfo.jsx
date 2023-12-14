@@ -28,7 +28,7 @@ const SeatInfo = ({selectedSeat, setSelectedSeat}) => {
   return (
     <div className='flex py-2 px-4'>
         {/* Economy Class */}
-        <section className='px-2 py-8 flex flex-col items-center gap-4 flex-1 max-h-[77vh] overflow-y-scroll hide-scroller'>
+        <section className='px-2 py-8 flex flex-col items-center gap-4 flex-1 xl:max-h-[77vh] overflow-y-scroll hide-scroller'>
             <Image src={EconomySeats} />
             <div className='flex flex-col gap-4 ps-10 self-start'>
                 <div className='flex gap-4'>
@@ -55,7 +55,7 @@ const SeatInfo = ({selectedSeat, setSelectedSeat}) => {
         </section>
 
         {/* Business Class */}
-        <section className='px-2 py-8 flex flex-col items-center gap-4 flex-1 max-h-[70vh] overflow-y-scroll hide-scroller'>
+        <section className='px-2 py-8 flex flex-col items-center gap-4 flex-1 xl:max-h-[70vh] overflow-y-scroll hide-scroller'>
             <Image src={BusinessSeats} />
             <div className='flex flex-col gap-4 ps-10 self-start'>
                 <div className='flex gap-4'>

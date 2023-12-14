@@ -10,7 +10,7 @@ const BookSeatNavigator = ({from, to, departDetails, arrivalDetails, journey, se
         setTriangleTransform(journey === 'Departing' ? 'translateX(5.4vw)' : 'translateX(18vw)');
       }, [journey]);
   return (
-    <div className='bg-[#27273F] flex items-center justify-between'>
+    <div className='bg-[#27273F] sticky flex items-center justify-between'>
       <div className='flex items-center'>
         <div className='py-5 px-8 text-[#FAFAFA]'>
             <p className='text-2xl font-extrabold'>{from.value}</p>

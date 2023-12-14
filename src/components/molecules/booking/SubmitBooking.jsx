@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 const SubmitBooking = ({passangerNo, passangerName, selectedSeat, setSelectedSeat, journey, setJourney}) => {
   return (
-    <div className='border-t border-t-[#CBD4E6] absolute bottom-0 py-4 px-6 flex items-center justify-around w-full gap-4 z-40 backdrop-blur-3xl'>
+    <div className='border-t border-t-[#CBD4E6] xl:absolute xl:bottom-0 py-4 px-6 flex items-center justify-around w-full gap-4 z-40 backdrop-blur-3xl'>
       <div className='p-2 flex flex-col gap-1'>
         <p className='text-sm text-[#7C8DB0]'>Passager {passangerNo}</p>
         <p className='text-lg font-semibold text-[#6E7491]'>{passangerName}</p>

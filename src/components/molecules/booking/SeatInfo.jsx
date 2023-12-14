@@ -4,7 +4,7 @@ import EconomySeats from '@/assets/images/economySeats.svg'
 import BusinessSeats from '@/assets/images/businessSeats.svg'
 import GreenTick from '@/assets/icons/green-tick.svg'
 
-const SeatInfo = () => {
+const SeatInfo = ({selectedSeat, setSelectedSeat}) => {
     const economyFeatures = [
         "Built-in entertainment system",
         "Complimentary snacks and drinks",
@@ -33,7 +33,7 @@ const SeatInfo = () => {
             <div className='flex flex-col gap-4 ps-10 self-start'>
                 <div className='flex gap-4'>
                     <p className='text-lg text-[#6E7491] font-semibold'>Economy</p>
-                    <div className='purple-gradient text-white rounded font-semibold flex items-center justify-center px-[6px]'>Selected</div>
+                    {selectedSeat.seatType=="Economy" && <div className='purple-gradient text-white rounded font-semibold flex items-center justify-center px-[6px]'>Selected</div>}
                 </div>
                 <div className='text-sm text-[#7C8DB0]'>
                     Rest and recharge during your flight with extended leg room, personalized service, and a multi-course meal service
@@ -55,12 +55,12 @@ const SeatInfo = () => {
         </section>
 
         {/* Business Class */}
-        <section className='px-2 py-8 flex flex-col items-center gap-4 flex-1 max-h-[77vh] overflow-y-scroll hide-scroller'>
+        <section className='px-2 py-8 flex flex-col items-center gap-4 flex-1 max-h-[70vh] overflow-y-scroll hide-scroller'>
             <Image src={BusinessSeats} />
             <div className='flex flex-col gap-4 ps-10 self-start'>
                 <div className='flex gap-4'>
                     <p className='text-lg text-[#6E7491] font-semibold'>Business</p>
-                    <div className='green-gradient text-white rounded font-semibold flex items-center justify-center px-[6px]'>Selected</div>
+                    {selectedSeat.seatType=="Business" && <div className='green-gradient text-white rounded font-semibold flex items-center justify-center px-[6px]'>Selected</div>}
                 </div>
                 <div className='text-sm text-[#7C8DB0]'>
                     Rest and recharge during your flight with extended leg room, personalized service, and a multi-course meal service

@@ -3,7 +3,7 @@ import React from 'react'
 import SeatInfo from './SeatInfo'
 import SubmitBooking from './SubmitBooking'
 
-const BookingSeat = () => {
+const BookingSeat = ({selectedSeat, setSelectedSeat, journey, setJourney}) => {
     const dummyBookingData = {
         from: {
             value: "SFO",
@@ -24,9 +24,23 @@ const BookingSeat = () => {
     }
   return (
     <>
-      <BookSeatNavigator from={dummyBookingData.from} to={dummyBookingData.to} departDetails={dummyBookingData.departDetails} arrivalDetails={dummyBookingData.arrivalDetails} />
-      <SeatInfo/>
-      <SubmitBooking  passangerNo={1} passangerName={"Sofia Knowles"} seatNumber={"4A"} seatSelected={true} />
+      <BookSeatNavigator 
+        from={dummyBookingData.from} 
+        to={dummyBookingData.to} 
+        departDetails={dummyBookingData.departDetails} 
+        arrivalDetails={dummyBookingData.arrivalDetails}  
+        journey={journey} 
+        setJourney={setJourney} 
+      />
+      <SeatInfo selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} />
+      <SubmitBooking 
+        passangerNo={1} 
+        passangerName={"Sofia Knowles"} 
+        selectedSeat={selectedSeat} 
+        setSelectedSeat={setSelectedSeat}
+        journey={journey} 
+        setJourney={setJourney}
+      />
     </>
   )
 }

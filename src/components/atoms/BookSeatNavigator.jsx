@@ -3,13 +3,12 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import RightArrow from '@/assets/icons/right-arrow.svg'
 
-const BookSeatNavigator = ({from, to, departDetails, arrivalDetails}) => {
-    const [state, setState] = useState("Departing")
-    const [triangleTransform, setTriangleTransform] = useState(state === 'Departing' ? 'translateX(5.4vw)' : 'translateX(18vw)');
+const BookSeatNavigator = ({from, to, departDetails, arrivalDetails, journey, setJourney}) => {
+    const [triangleTransform, setTriangleTransform] = useState(journey === 'Departing' ? 'translateX(5.4vw)' : 'translateX(18vw)');
     useEffect(() => {
-        // Update the triangle transform when the state changes
-        setTriangleTransform(state === 'Departing' ? 'translateX(5.4vw)' : 'translateX(18vw)');
-      }, [state]);
+        // Update the triangle transform when the journey changes
+        setTriangleTransform(journey === 'Departing' ? 'translateX(5.4vw)' : 'translateX(18vw)');
+      }, [journey]);
   return (
     <div className='bg-[#27273F] flex items-center justify-between'>
       <div className='flex items-center'>
@@ -27,7 +26,7 @@ const BookSeatNavigator = ({from, to, departDetails, arrivalDetails}) => {
       </div>
 
       <section className='flex items-center relative text-white'>
-        <div className={`flex flex-col gap-1 py-6 px-[2vw] cursor-pointer border-x border-x-[#7C8DB0] ${state=="Departing" ? "bg-purple-blue" : ""}`} onClick={()=>setState("Departing")}>
+        <div className={`flex flex-col gap-1 py-6 px-[2vw] cursor-pointer border-x border-x-[#7C8DB0] ${journey=="Departing" ? "bg-purple-blue" : ""}`}>
             <div className='flex items-center gap-3'>
                 <p>{departDetails.date}</p>
                 <p className='w-[1px] h-4 bg-[#7C8DB0]'></p>
@@ -35,7 +34,7 @@ const BookSeatNavigator = ({from, to, departDetails, arrivalDetails}) => {
             </div>
             <div>Departing</div>
         </div>
-        <div className={`flex flex-col gap-1 py-6 px-[2vw] cursor-pointer ${state=="Arriving" ? "bg-purple-blue" : ""}`} onClick={()=>setState("Arriving")}>
+        <div className={`flex flex-col gap-1 py-6 px-[2vw] cursor-pointer ${journey=="Arriving" ? "bg-purple-blue" : ""}`}>
             <div className='flex items-center gap-3'>
                 <p>{arrivalDetails.date}</p>
                 <p className='w-[1px] h-4 bg-[#7C8DB0]'></p>

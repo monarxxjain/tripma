@@ -14,12 +14,12 @@ const BookingSeat = ({selectedSeat, setSelectedSeat, journey, setJourney}) => {
             address: "Tokyo, Japan"
         },
         departDetails: {
-            date: "Feb 25",
-            time: "7:00 AM"
+            date: "Feb25",
+            time: "7:00AM"
         },
         arrivalDetails: {
-            date: "Mar 21",
-            time: "12:15 PM"
+            date: "Mar21",
+            time: "12:15PM"
         }
     }
   return (

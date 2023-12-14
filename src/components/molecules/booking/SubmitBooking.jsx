@@ -13,8 +13,8 @@ const SubmitBooking = ({passangerNo, passangerName, selectedSeat, setSelectedSea
           <p className='text-lg font-semibold text-[#6E7491]'>{selectedSeat.seatNo}</p>
         </div>
       </div>
-      <div className='flex items-center gap-4 w-full'>
-        <button className='text-lg px-5 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and close</button>
+      <div className='flex items-center gap-4 w-full sm:justify-end'>
+        <button className='text-lg px-4 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and close</button>
         {journey=="Departing" && <button 
           onClick={() => {
             if(selectedSeat.isSeatSelected){setJourney("Arriving"); 
@@ -25,6 +25,10 @@ const SubmitBooking = ({passangerNo, passangerName, selectedSeat, setSelectedSea
                 isSeatSelected: false
               }));
             }
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth' // You can also use 'auto' or 'instant'
+            });
           }} 
         className={`text-lg px-5 py-3 rounded border ${selectedSeat.isSeatSelected ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d] text-[#7C8DB0] pointer-events-none"} `}>Next Flight</button>}
 

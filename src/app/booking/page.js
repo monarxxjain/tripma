@@ -18,7 +18,7 @@ export default function Home(){
                 <SideNav />
                 <Plane selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} />
             </section>
-            <section className="xl:absolute xl:right-0 xl:top-0 xl:w-1/2 xl:h-screen bg-white/50 backdrop-blur-md z-40 border-s border-s-[#CBD4E6] overflow-hidden">
+            <section className="xl:absolute xl:right-0 xl:top-0 xl:w-1/2 xl:h-screen bg-white/50 backdrop-blur-md z-40 xl:border-s xl:border-s-[#CBD4E6] overflow-hidden">
                 <BookingSeat selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} journey={journey} setJourney={setJourney} />
             </section>
         </div>

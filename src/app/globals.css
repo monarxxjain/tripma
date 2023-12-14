@@ -93,6 +93,39 @@ input[type=checkbox]{
   cursor: pointer;
 }
 
+@media (max-width: 1280px){
+  .businessClass{
+    width: 20px;
+    height: 30px;
+  }
+
+  .bookedBusinessClass {
+    width: 20px;
+    height: 30px;
+  }
+  
+  .businessClassSelected{
+    width: 20px;
+    height: 30px;
+  }
+
+
+  .economyClass {
+    width: 16px;
+    height: 24px;
+  }
+
+  .bookedEconomyClass{
+    width: 16px;
+    height: 24px;
+  }
+  
+  .economyClassSelected{
+    width: 16px;
+    height: 24px;
+  }
+}
+
 .purple-gradient {
   background: linear-gradient(180deg, #605DEC 0%, #2A26D9 100%);
 }

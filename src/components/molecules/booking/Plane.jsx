@@ -130,7 +130,7 @@ const Seat = ({variant, column, selectedSeat, setSelectedSeat, index}) => {
 
 const BusinessRow = ({index, selectedSeat, setSelectedSeat}) => {
   return (
-    <div className='flex justify-between items-center gap-1 my-2'>
+    <div className='flex justify-between items-center gap-[2px] xl:gap-1 my-2'>
       <div className='flex gap-1 xl:gap-2'>
         <Seat variant={"Business"} column={"A"} selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} index={index}/>
         <Seat variant={"BookedBusiness"} column={"B"} selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} index={index}/>
@@ -153,7 +153,7 @@ const EconomyRow = ({index, isExitRow, selectedSeat, setSelectedSeat}) => {
         <Image src={InfoIcon} />
         <p className='text-[10px] xl:text-xs text-[#7C8DB0]'>Exit row</p>
       </div>}
-      <div className='flex justify-between items-center gap-1 my-1 xl:my-2'>
+      <div className='flex justify-between items-center gap-[2px] xl:gap-1 my-1.5 xl:my-2'>
         <div className='flex gap-0.5 xl:gap-1'>
           <Seat variant={"Economy"} column={"A"} selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} index={index}/>
           <Seat variant={"Economy"} column={"B"} selectedSeat={selectedSeat} setSelectedSeat={setSelectedSeat} index={index}/>

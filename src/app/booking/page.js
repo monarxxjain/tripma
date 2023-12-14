@@ -9,7 +9,7 @@ export default function Home(){
                 <SideNav />
                 <Plane/>
             </section>
-            <section className="2xl:absolute 2xl:right-0 2xl:top-0 2xl:w-1/2 2xl:h-screen bg-white/50 backdrop-blur-md z-40 border-s border-s-[#CBD4E6]">
+            <section className="2xl:absolute 2xl:right-0 2xl:top-0 2xl:w-1/2 2xl:h-screen bg-white/50 backdrop-blur-md z-40 border-s border-s-[#CBD4E6] overflow-hidden">
                 <BookingSeat />
             </section>
         </div>

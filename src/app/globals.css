@@ -152,4 +152,34 @@ input[type=checkbox]{
   animation-duration: 400ms; /* Adjust the duration as needed */
   animation-iteration-count: 1;
 }
+@keyframes slideIn {
+  from {
+    transform: translateX(-1000px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 400ms; /* Adjust the duration as needed */
+  animation-iteration-count: 1;
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0px);
+    display: block;
+  }
+  to {
+    transform: translateX(-1000px);
+    display: hidden;
+  }
+}
+
+.slide-out {
+  animation: slideOut 1s forwards;
+  animation-iteration-count: 1;
+}
 

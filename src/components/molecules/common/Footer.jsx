@@ -11,8 +11,9 @@ import Facebook from '@/assets/icons/facebook.svg'
 const Footer = () => {
   return (
     <div className='py-4'>
-      <div className='px-32 pt-16 pb-6 flex justify-between items-start text-[#6E7491]'>
-        <Image className='' src={TripmaLogo} />
+      <Image className='md:hidden px-5 w-max mb-4' src={TripmaLogo} />
+      <div className='px-8 lg:px-20 xl:px-32 md:pt-16 pb-6 grid grid-cols-2 sm:flex justify-between gap-8 items-start text-[#6E7491]'>
+        <Image className='hidden md:block' src={TripmaLogo} />
         <div className="flex flex-col gap-2">
             <div className='font-semibold text-lg'>About</div>
 
@@ -54,7 +55,7 @@ const Footer = () => {
             <Image src={PlayStore} className='mt-2' />
         </div>
       </div>
-      <div className='px-32 py-3 pt-8 border-t border-t-[#CBD4E6] flex justify-between items-center text-[#7C8DB0]'>
+      <div className='px-8 lg:px-20 xl:px-32 py-3 pt-8 border-t border-t-[#CBD4E6] flex flex-wrap gap-x-10 justify-center sm:justify-between items-center text-[#7C8DB0]'>
         <div className='flex gap-5'>
             <a href='#'><Image src={Twitter} /></a>
             <a href='#'><Image src={Instagram} /></a>

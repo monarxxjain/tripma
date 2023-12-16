@@ -134,6 +134,10 @@ input[type=checkbox]{
   background: linear-gradient(180deg, #5CD6C0 0%, #22C3A6 100%);
 }
 
+.pink-gradient {
+  background: linear-gradient(180deg, #EB568C 0%, #ED5E76 100%);
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;

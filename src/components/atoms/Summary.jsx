@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 const Summary = ({flights}) => {
   return (
-    <div className='flex flex-col self-end'>
+    <div className='flex flex-col xl:self-end'>
                     <div className='rounded-xl border border-[#E9E8FC] p-4 '>
                         {flights.map((flight, id)=>{
                             return(
@@ -25,7 +25,7 @@ const Summary = ({flights}) => {
                             )
                         })}
                     </div>
-                    <div className='p-4 flex flex-col gap-2 font-semibold ms-28'>
+                    <div className='p-4 flex flex-col gap-2 font-semibold xl:ms-28'>
                         <div className='flex justify-between items-center'>
                             <div>Subtotal</div>
                             <div>$503</div>

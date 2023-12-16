@@ -42,12 +42,12 @@ const PaymentMethod = () => {
         },
     ]
   return (
-    <div className='flex border border-[#605DEC] rounded mt-4 w-fit'>
+    <div className='grid grid-cols-2 sm:grid-cols-3 md:flex border border-[#605DEC] rounded mt-4 w-fit overflow-x-scroll hide-scroller'>
       {methods.map((method, id)=>{
         return (
-            <div key={id} onClick={()=>setActiveMethod(method.name)} className={`flex items-center gap-1 py-3 px-5 rounded cursor-pointer transition-all ${activeMethod===method.name ? "bg-purple-blue text-white" : ""}`}>
+            <div key={id} onClick={()=>setActiveMethod(method.name)} className={`flex items-center gap-1 py-3 px-5 cursor-pointer transition-all ${activeMethod===method.name ? "bg-purple-blue text-white rounded" : "border md:border-0"}`}>
                 <Image src={ activeMethod===method.name ? method.clickedIcon : method.icon} className='' />
-                <p className='text-lg'>{method.name}</p>
+                <p className='text-lg whitespace-nowrap '>{method.name}</p>
             </div>
         )
       })}

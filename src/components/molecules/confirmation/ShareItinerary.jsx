@@ -31,7 +31,7 @@ const ShareItinerary = () => {
       <div className='flex flex-col gap-6'>
         <p className='text-lg text-[#7C8DB0]'>You can email your itinerary to anyone by entering their email address here.</p>
 
-        <div className='w-1/2 flex flex-col gap-6'>
+        <div className='sm:w-1/2 flex flex-col gap-6'>
           {emailInputs}
           <div className='flex gap-4 items-center'>
             <button className='py-3 px-5 bg-purple-blue text-white hover:shadow-xl active:scale-95 transition-all rounded'>Email itinerary</button>

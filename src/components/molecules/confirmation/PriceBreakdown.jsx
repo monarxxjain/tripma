@@ -32,7 +32,7 @@ const PriceBreakdown = () => {
   return (
     <div className='flex flex-col gap-6'>
       <p className='text-2xl text-[#6E7491] font-semibold'>Price Breakdown</p>
-      <div className='w-7/12 flex flex-col gap-3'>
+      <div className='sm:w-7/12 flex flex-col gap-3'>
         {breakdownDetails.map((detail, index)=>{
             return (
                 <div key={index} className='flex justify-between items-center text-[#6E7491]'>

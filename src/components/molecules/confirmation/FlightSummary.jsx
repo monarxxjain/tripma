@@ -48,7 +48,7 @@ const FlightSummary = () => {
                 <p className='text-lg text-[#6E7491] font-semibold'>Departing February 25th, 2021</p>
                 <div className='px-4 py-1 flex items-center gap-2  border border-[#CBD4E6] rounded'>
                     <Image src={Airline} />
-                    <div className='px-4 py-2 flex justify-between w-full'>
+                    <div className='px-4 py-2 grid grid-cols-2 md:flex lg:grid lg:grid-cols-2 gap-y-3 xl:flex justify-between w-full'>
                         {departDetails.map((detail, index)=>{
                             return(
                                 <div key={index} className='flex flex-col'>
@@ -68,7 +68,7 @@ const FlightSummary = () => {
                 <p className='text-lg text-[#6E7491] font-semibold'>Arriving March 21st, 2021</p>
                 <div className='px-4 py-1 flex items-center gap-2  border border-[#CBD4E6] rounded'>
                     <Image src={Airline} />
-                    <div className='px-4 py-2 flex justify-between w-full'>
+                    <div className='px-4 py-2 grid grid-cols-2 md:flex lg:grid lg:grid-cols-2 gap-y-3 xl:flex justify-between w-full'>
                         {arrivalDetails.map((detail, index)=>{
                             return(
                                 <div key={index} className='flex flex-col'>

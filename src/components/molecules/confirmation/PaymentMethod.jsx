@@ -8,7 +8,7 @@ const PaymentMethod = ({name, last4Digits, exp}) => {
         dots.push(<div className='w-1.5 h-1.5 rounded-full bg-white'></div>)
     }
   return (
-    <div className='flex flex-col gap-6 w-fit'>
+    <div className='flex flex-col gap-6 sm:w-fit'>
       <p className='text-2xl text-[#6E7491] font-semibold'>Price Breakdown</p>
       <div className='rounded-2xl px-6 py-7 pink-gradient flex flex-col gap-20'>
         <Image src={Visa} />

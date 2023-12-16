@@ -8,6 +8,7 @@ const ShareItinerary = () => {
       id="outlined-size-small"
       defaultValue=""
       size="small"
+      key={0}
     />
   ]);
 

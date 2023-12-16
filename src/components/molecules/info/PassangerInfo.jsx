@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Luggage from '@/assets/images/Luggage.svg'
 import Airline from '@/assets/images/airline.png'
-
+import TextField from '@mui/material/TextField'
 import Summary from '@/components/atoms/Summary'
 
 const PassangerInfo = () => {
@@ -60,7 +60,7 @@ const PassangerInfo = () => {
     ]
 
   return (
-    <div className='px-24 py-14 md:flex md:items-end md:justify-between'>
+    <div className='px-4 sm:px-10 lg:px-24 py-14 gap-16 flex flex-col-reverse md:flex-row md:items-end md:justify-between'>
       <div className='text-[#7C8DB0] md:w-1/2'>
         <h3 className='text-purple-blue font-semibold text-2xl'>Passenger Information</h3>
         <p className='mt-4'>Enter the required information for each traveler and be sure that it exactly matches the government-issued ID presented at the airport.</p>
@@ -233,14 +233,14 @@ const PassangerInfo = () => {
 
         </div>
 
-        <div className='flex gap-6 mt-20'>
+        <div className='flex gap-6 mt-10 md:mt-20'>
             <button className='text-lg px-5 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and close</button>
             <button className={`text-lg px-5 py-3 rounded border ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Select seats</button>
         </div>
       </div>
 
-      <div className='md:w-1/2 flex flex-col items-end'>
-            <div className='mb-28 flex flex-col gap-8'>
+      <div className='md:w-1/2 flex flex-col md:items-end'>
+            <div className='mb-10 md:mb-28 flex flex-col gap-8'>
                 <Summary flights={flights}/>
                 <div className='self-end'>          
                     <button className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Select seats</button>

@@ -35,10 +35,10 @@ const Reviews = () => {
         },
     ]
   return (
-    <div className='p-16 flex flex-col gap-6'>
+    <div className='px-4 sm:px-10 lg:px-16 py-16 flex flex-col gap-6'>
       <div className='text-2xl font-bold text-[#6E7491] mx-auto'>What <span className='text-purple-blue'>Tripma</span> users are saying</div>
 
-      <section className='grid grid-cols-3 gap-10 justify-between'>
+      <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-between'>
         {reviews.map((review, id)=>{
             const filledStars = [];
             const outlinedStars = [];

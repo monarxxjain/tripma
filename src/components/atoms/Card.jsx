@@ -6,7 +6,7 @@ const Card = ({type, image, heading, city, amount, description}) => {
     <div className='rounded-xl shadow-md'>
       <Image src={image} className='rounded-t-xl w-full' />
       <div className='py-4 px-6 flex flex-col'>
-        <div className='flex justify-between items-center text-[#6E7491] font-semibold'>
+        <div className='flex gap-4 justify-between items-center text-[#6E7491] font-semibold'>
             <p>{heading}, <span className={`${type=="deal" ? "text-purple-blue" : "text-[#22C3A6]"}`}>{city}</span></p>
             <p>{amount}</p>
         </div>

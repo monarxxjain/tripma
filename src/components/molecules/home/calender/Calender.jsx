@@ -110,7 +110,7 @@ export default function Calender({setSelectedValue, setIsOptionsVisible}) {
                             placeholder={"Depart - Return"}
                         />
                     </div>
-                    <button className='bg-purple-blue h-min text-white rounded-md py-2.5 px-5 active:scale-95 transition-all' onClick={()=>{handleSubmit; setIsOptionsVisible(false)}}>Done</button>
+                    <button className='bg-purple-blue h-min text-white rounded-md py-2.5 px-5 active:scale-95 transition-all' onClick={()=>{handleSubmit(); setIsOptionsVisible(false)}}>Done</button>
                 </div>
             </div>
             <div className="calender p-4">

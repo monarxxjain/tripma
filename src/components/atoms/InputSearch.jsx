@@ -91,20 +91,28 @@ const InputSearch = ({ icon, placeHolder, options }) => {
           <div className='text-[#7C8DB0]'>Adults:</div>
           <div className='flex items-center justify-between gap-3'>
             <div className='text-purple-blue text-3xl tracking-[-5px] me-1 cursor-pointer' onClick={()=>{if(adultCount!==0){
-              setAdultCount(adultCount-1)
+              setAdultCount(adultCount-1);
+              setSelectedValue(`${adultCount-1} Adults ${childCount!=0 ? ` & ${childCount} Child` : ""}`)
             }}}>--</div>
             <div className='text-2xl text-[#7C8DB0]'>{adultCount}</div>
-            <div className='text-purple-blue text-3xl cursor-pointer' onClick={()=>setAdultCount(adultCount+1)}>+</div>
+            <div className='text-purple-blue text-3xl cursor-pointer' onClick={()=>{
+              setAdultCount(adultCount+1)
+              setSelectedValue(`${adultCount+1} Adults ${childCount!=0 ? ` & ${childCount} Child` : ""}`)
+            }}>+</div>
           </div>
         </div>
         <div className='flex justify-between items-center'>
           <div className='text-[#7C8DB0]'>Minors:</div>
           <div className='flex items-center justify-between gap-3'>
             <div className='text-purple-blue text-3xl tracking-[-5px] me-1 cursor-pointer' onClick={()=>{if(childCount!==0){
-              setChildCount(childCount-1)
+              setChildCount(childCount-1);
+              setSelectedValue(`${adultCount!=0 ? ` ${adultCount} Adult` : ""} ${childCount-1!=0 ? ` & ${childCount-1} Child` : ""}`)
             }}}>--</div>
             <div className='text-2xl text-[#7C8DB0]'>{childCount}</div>
-            <div className='text-purple-blue text-3xl cursor-pointer' onClick={()=>setChildCount(childCount+1)}>+</div>
+            <div className='text-purple-blue text-3xl cursor-pointer' onClick={()=>{
+              setChildCount(childCount+1)
+              setSelectedValue(`${adultCount!=0 ? ` ${adultCount} Adult` : ""} ${childCount+1!=0 ? ` & ${childCount+1} Child` : ""}`)
+            }}>+</div>
           </div>
         </div>
         

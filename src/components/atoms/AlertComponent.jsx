@@ -20,7 +20,7 @@ const AlertComponent = () => {
     <>
       {isVisible && (
         <div ref={alert}>
-          <div className="flex justify-between bg-purple-blue text-white font-semibold py-4 px-8 gap-16">
+          <div className="flex justify-between bg-purple-blue text-white font-semibold py-4 px-4 sm:px-8 gap-5 sm:gap-16">
             <p className='invisible hidden lg:block'>Hi</p>
             <p className="text-md">Join Tripma today and save up to 20% on your flight using code TRAVEL at checkout. Promotion valid for new users only.</p>
             <button

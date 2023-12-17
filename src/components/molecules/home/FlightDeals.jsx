@@ -9,14 +9,14 @@ import Deal4 from '@/assets/images/FlightDeals/deal4.png'
 
 const FlightDeals = () => {
   return (
-    <div className='px-16 py-10 flex flex-col gap-6'>
-      <div className='flex justify-between text-[#6E7491] text-2xl'>
+    <div className='px-4 sm:px-10 lg:px-16 py-10 flex flex-col gap-6'>
+      <div className='flex justify-between gap-5 text-[#6E7491] text-2xl'>
         <p className='font-bold'>Find your next adventure with these <span className='text-[#605DEC]'>flight deals</span></p>
         <Link href="/" className='flex items-center gap-1'>All <BsArrowRight/> </Link>
       </div>
 
       <section className='flex flex-col gap-10'>
-        <div className='flex gap-10 justify-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 '>
             <Card type="deal" image={Deal1} heading="The Bund" city="Shanghai" amount="$598" description={"China’s most international city"} />
             <Card type="deal" image={Deal2} heading="Sydney Opera House" city="Sydney" amount="$981" description={"Take a stroll along the famous harbor"} />
             <Card type="deal" image={Deal3} heading="Kōdaiji Temple" city="Kyoto" amount="$633" description={"Step back in time in the Gion district"} />

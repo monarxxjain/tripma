@@ -82,16 +82,27 @@ export default function Calender({setSelectedValue, setIsOptionsVisible}) {
 
     const [screenW, setScreenW] = useState(window.innerWidth);
     useEffect(() => {
-        setScreenW(window.innerWidth);
-    }, [screenW]);
+        const handleResize = () => {
+          setScreenW(window.innerWidth);
+        };
+    
+        // Add event listener
+        window.addEventListener('resize', handleResize);
+    
+        // Cleanup the event listener when the component unmounts
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []); 
 
     const handleSubmit = () => {
         setSelectedValue(`${moment(selectDate[0]).format('DD MMM')} to ${moment(selectDate[1]).format('DD MMM')}`)
     }
 
+
     return (
-        <div className="calender-wrp bg-white rounded-lg  full-shadow absolute left-[-262px] top-[-60px] border-[#7C8DB0]">
-            <div className='flex justify-between gap-8 w-max items-center p-4 border-b-2 border-b-[#7c8db07d]'>
+        <div className="calender-wrp bg-white rounded-lg  full-shadow absolute xl:left-[-262px] top-[-60px] border-[#7C8DB0]">
+            <div className='flex flex-col-reverse md:flex-row justify-between gap-3 md:gap-8 w-full md:w-max items-center p-4 border-b-2 border-b-[#7c8db07d]'>
                 <div className='flex items-center'>
                     <input type='radio' id='round-trip' value={"Round Trip"} name="trip-type"/>
                     <label className='text-grey-custom ms-2' for="round-trip">Round Trip</label>
@@ -123,7 +134,7 @@ export default function Calender({setSelectedValue, setIsOptionsVisible}) {
                     
                     <div className='flex gap-16'>
                         <CalenderItem data={firstMon} select={{ selectDate, handler: selectHandler }} />
-                        {screenW > 600 && <CalenderItem data={lasttMon} select={{ selectDate, handler: selectHandler }} />}
+                        {screenW > 768 && <CalenderItem data={lasttMon} select={{ selectDate, handler: selectHandler }} />}
 
                     </div>
 

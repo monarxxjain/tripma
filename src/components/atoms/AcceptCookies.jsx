@@ -13,7 +13,7 @@ const AcceptCookies = () => {
         }, 350);
     };
     return (
-        isVisible && <div ref={cookiePerm} className='flex flex-col gap-3 py-4 px-6 rounded-lg fixed left-4 bottom-4 md:left-10 md:bottom-10 border border-[#605DEC] max-w-[280px] backdrop-blur  '>
+        isVisible && <div ref={cookiePerm} className='flex flex-col gap-3 py-4 px-6 rounded-lg fixed left-4 bottom-4 md:left-10 md:bottom-10 border border-[#605DEC] max-w-[280px] backdrop-blur z-50 '>
             <div className='flex justify-between gap-6 text-purple-blue'>
                 <div>By using our site, you agree to eat our cookies.</div>
                 <div onClick={handleClose} className='cursor-pointer'>&#10005;</div>

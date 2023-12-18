@@ -12,7 +12,7 @@ const FlightSearch = () => {
 
   return (
     <div>
-      <div className='flight-search grid grid-cols-1 sm:grid-cols-2 px-4 sm:px-20 xl:px-0 gap-y-5 xl:gap-0 xl:flex justify-center pb-5 xl:pb-48'>
+      <div className='flight-search relative grid grid-cols-1 sm:grid-cols-2 px-4 sm:px-20 xl:px-0 gap-y-5 xl:gap-0 xl:flex justify-center pb-5 xl:pb-48'>
         <InputSearch icon={FromFlight} placeHolder="From where?" options={fromOptions} />
         <InputSearch icon={ToFlight} placeHolder="Where to?" options={toOptions} />
         <InputSearch icon={CalenderIcon} placeHolder="Depart - Return" />

@@ -44,7 +44,7 @@ const InputSearch = ({ icon, placeHolder, options }) => {
   }, []);
 
   return (
-    <div ref={inputRef}>
+    <div ref={inputRef} className='relative'>
       <div
         className={`flex items-center gap-2 border shadow-md py-1 px-3 ${
           placeHolder === 'From where?' ? 'rounded-s-md' : ''
@@ -63,7 +63,7 @@ const InputSearch = ({ icon, placeHolder, options }) => {
         />
       </div>
       {isOptionsVisible && options && (
-        <div className='bg-white rounded-lg p-4 flex flex-col gap-2 mt-1 full-shadow max-h-[216px] overflow-scroll hide-scroller'>
+        <div className='bg-white absolute w-full z-40 rounded-lg p-4 flex flex-col gap-2 mt-1 full-shadow max-h-[216px] overflow-scroll hide-scroller'>
           {options?.map((option, id) => {
             return (
               <div
@@ -81,12 +81,12 @@ const InputSearch = ({ icon, placeHolder, options }) => {
       )}
 
     {isOptionsVisible && placeHolder=="Depart - Return" && 
-        <div className='relative'>
+        <div className='relative z-40'>
           <Calender setSelectedValue={setSelectedValue} setIsOptionsVisible={setIsOptionsVisible}/>
         </div>
     }
 
-    {isOptionsVisible && placeHolder=="1 Adult" && <div className='bg-white rounded-lg p-4 mt-1 full-shadow'>
+    {isOptionsVisible && placeHolder=="1 Adult" && <div className='bg-white z-40 absolute w-full rounded-lg p-4 mt-1 full-shadow'>
         <div className='flex justify-between items-center'>
           <div className='text-[#7C8DB0]'>Adults:</div>
           <div className='flex items-center justify-between gap-3'>

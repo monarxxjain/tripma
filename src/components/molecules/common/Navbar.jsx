@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className='flex justify-between items-center px-4 md:px-6 py-2 sticky top-0 bg-white z-10'>
+      <div className='flex justify-between items-center px-4 md:px-6 py-2 sticky top-0 bg-white z-20'>
         <div className='flex items-center'>
           <Image className='md:hidden cursor-pointer' src={Hamburger} onClick={()=>{setIsSideNavOpen(true); setCloseAnimation("slide-out"); document.body.style.overflowY="hidden"}} />
           <Image className='' src={TripmaLogo} />

@@ -197,3 +197,38 @@ input[type=checkbox]{
   animation-iteration-count: 1;
 }
 
+.custom-dropdown select {
+  appearance: none;
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
+  background-image: url('../assets/icons/drop-down.svg'); /* Set your custom arrow image path */
+  background-repeat: no-repeat;
+  /* background-position: right center; */
+  padding-right: 20px; /* Adjust the padding to make space for the arrow */
+  cursor: pointer;
+}
+
+.custom-dropdown select::-ms-expand {
+  display: none; /* Hide the default arrow in IE/Edge */
+}
+/* Hide the scrollbar buttons for webkit browsers */
+.flights-scroll::-webkit-scrollbar-button {
+  display: none;
+}
+
+/* Additional styles for the scrollbar (optional) */
+.flights-scroll::-webkit-scrollbar {
+  width: 3px; /* Adjust the width as needed */
+  padding: 5px;
+}
+
+.flights-scroll::-webkit-scrollbar-thumb {
+  background-color: #88888866; /* Color of the scrollbar thumb */
+  border-radius: 12px;
+}
+
+.flights-scroll::-webkit-scrollbar-track {
+  background-color: transparent; /* Color of the scrollbar track */
+  border-radius: 50%;
+  padding: 20px;
+}

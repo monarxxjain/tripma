@@ -2,9 +2,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Calender from '../molecules/home/calender/Calender';
-const InputSearch = ({ icon, placeHolder, options }) => {
+const InputSearch = ({ icon, value, placeHolder, options }) => {
   const [isFocused, setIsFocused] = useState(false);
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValue, setSelectedValue] = useState(value || '');
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
   const [adultCount, setAdultCount] = useState(1)
   const [childCount, setChildCount] = useState(0)
@@ -62,6 +62,7 @@ const InputSearch = ({ icon, placeHolder, options }) => {
           onBlur={handleBlur}
         />
       </div>
+      {/* Dropdown */}
       {isOptionsVisible && options && (
         <div className='bg-white absolute w-full z-40 rounded-lg p-4 flex flex-col gap-2 mt-1 full-shadow max-h-[216px] overflow-scroll hide-scroller'>
           {options?.map((option, id) => {

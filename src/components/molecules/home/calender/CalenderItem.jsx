@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import generateDate from "./generateDate";
-import specialDate from "./spisalDate";
 
 export default function CalenderItem({ data = {}, select = [] }) {
   const days = ["S", "M", "T", "W", "T", "F", "S"];

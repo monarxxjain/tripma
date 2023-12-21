@@ -1,10 +1,13 @@
-import LineChart from '@/components/atoms/Chart'
 import React from 'react'
+import Link from 'next/link'
+import { motion } from "framer-motion";
+import LineChart from '@/components/atoms/Chart'
+import Summary from '@/components/atoms/Summary'
 
 const PricingDetails = ({selectedFlight}) => {
   return (
     <div className='flex flex-col'>
-      {selectedFlight.departingFlight==null && 
+      {selectedFlight.departingFlight==null ? 
         <>
             <p className='text-lg text-[#6E7491]'>Price grid (flexible dates)</p>
 
@@ -78,7 +81,25 @@ const PricingDetails = ({selectedFlight}) => {
             <p className='text-[#A1B0CC] mt-4'>
                 Tripma analyzes thousands of flights, prices, and trends to ensure you get the best deal.
             </p>
-        </>
+        </> 
+        
+        : 
+        <motion.div
+            initial={{ opacity: 0, x: "0px", y: "0px" }}
+            animate={{ opacity: 1, x: "0", y: "0px" }}
+            exit={{ opacity: 0, x: "0px", y: "0px" }}
+            transition={{ duration: 0.4 }}
+            className='flex flex-col gap-8'
+        >
+                <Summary flights={selectedFlight} />
+                <div className='xl:self-end'>          
+                    {!selectedFlight.returningFlight ? 
+                        <Link href={"/"} onClick={()=>{localStorage.setItem("flights",  JSON.stringify(selectedFlight))}} className='text-lg self-end px-5 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and Close</Link> 
+                    :
+                        <Link href={"/info"} onClick={()=>{localStorage.setItem("flights", JSON.stringify(selectedFlight))}} className={`text-lg px-5 py-3 rounded border text-white bg-purple-blue active:scale-95 transition-transform`}>Passanger Information</Link>
+                    }
+                </div>
+        </motion.div>
       }
     </div>
   )

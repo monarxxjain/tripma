@@ -180,7 +180,9 @@ const PaymentDetails = () => {
 
       <div className='xl:w-1/3 flex flex-col mt-16 md:mt-32'>
             <div className='md:mb-28 flex flex-col gap-8'>
-                <Summary flights={flights}/>
+                <div className='xl:self-end'>
+                    <Summary flights={flights}/>
+                </div>
                 <div className='xl:self-end'>          
                     <button className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${paymentAllowance ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Confirm and pay</button>
                 </div>

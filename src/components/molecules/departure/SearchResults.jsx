@@ -9,9 +9,7 @@ const SearchResults = () => {
       <Search />
       <Filters />
 
-      <section className='flex justify-between gap-10 mt-12'>
-        <Flights />
-      </section>
+      <Flights />
     </div>
   )
 }

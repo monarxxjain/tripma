@@ -6,6 +6,7 @@ import  HawaiianAirline from '@/assets/images/Airlines/Hawaiian.png'
 import  JapanAirline from '@/assets/images/Airlines/Japan.png'
 import  DeltaAirline from '@/assets/images/Airlines/Delta.png'
 import JourneyMap from '@/assets/images/journey-map.svg'
+import PricingDetails from './PricingDetails';
 
 const Flights = () => {
 
@@ -280,42 +281,48 @@ const Flights = () => {
   },[selectedFlights])
 
   return (
-    <div className='w-8/12 flex flex-col'>
-      <p className='text-lg text-[#6E7491] ps-1'>Choose a <span className='text-[#605DEC] fade-in'>{journey}</span> flight</p>
+    <section className='flex justify-between gap-10 mt-12'>
+      <div className='w-8/12 flex flex-col'>
+        <p className='text-lg text-[#6E7491] ps-1'>Choose a <span className='text-[#605DEC] fade-in'>{journey}</span> flight</p>
 
-      <section className='p-4 mt-4 max-h-[420px] overflow-y-scroll rounded-xl border border-[#CBD4E6] hide-scroller'>
-        {selectedFlights.departingFlight==null && departingFlights.map((flight, index)=>{
-          return(
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: "0px", y: "100px" }}
-              animate={{ opacity: 1, x: "0", y: "0px" }}
-              exit={{ opacity: 0, x: "0px", y: "0px" }}
-              transition={{ duration: 0.5+(0.09*index) }}
-            >
-              <Flight tripType={journey} flight={flight} selectedFlight={selectedFlights} setSelectedFlights={setSelectedFlights} setJourney={setJourney} />
-            </motion.div>
-          )
-        })}
-        {selectedFlights.departingFlight!=null && returningFlights.map((flight, index)=>{
-          return(
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: "0px", y: "100px" }}
-              animate={{ opacity: 1, x: "0", y: "0px" }}
-              exit={{ opacity: 0, x: "0px", y: "0px" }}
-              transition={{ duration: 0.5+(0.09*index) }}
-            >
-              <Flight tripType={journey} flight={flight} selectedFlight={selectedFlights} setSelectedFlights={setSelectedFlights} />
-            </motion.div>
-          )
-        })}
-      </section>
+        <section className='p-4 mt-4 max-h-[420px] overflow-y-scroll rounded-xl border border-[#CBD4E6] hide-scroller'>
+          {selectedFlights.departingFlight==null && departingFlights.map((flight, index)=>{
+            return(
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: "500px", y: "0px" }}
+                animate={{ opacity: 1, x: "0", y: "0px" }}
+                exit={{ opacity: 0, x: "0px", y: "0px" }}
+                transition={{ duration: 0.5+(0.09*index) }}
+              >
+                <Flight tripType={journey} flight={flight} selectedFlight={selectedFlights} setSelectedFlights={setSelectedFlights} setJourney={setJourney} />
+              </motion.div>
+            )
+          })}
+          {selectedFlights.departingFlight!=null && returningFlights.map((flight, index)=>{
+            return(
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: "500px", y: "0px" }}
+                animate={{ opacity: 1, x: "0", y: "0px" }}
+                exit={{ opacity: 0, x: "0px", y: "0px" }}
+                transition={{ duration: 0.5+(0.09*index) }}
+              >
+                <Flight tripType={journey} flight={flight} selectedFlight={selectedFlights} setSelectedFlights={setSelectedFlights} />
+              </motion.div>
+            )
+          })}
+        </section>
 
-      <button className='text-lg self-end px-5 py-3 mt-6 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Show all flights</button>
+        <button className='text-lg self-end px-5 py-3 mt-6 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Show all flights</button>
 
-      <Image src={JourneyMap} className='w-full mt-12' />
-    </div>
+        <Image src={JourneyMap} className='w-full mt-12' />
+      </div>
+
+      <div className='w-4/12'>
+        <PricingDetails selectedFlight={selectedFlights} />
+      </div>
+    </section>
   )
 }
 

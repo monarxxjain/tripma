@@ -2,7 +2,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import Calender from '../molecules/home/calender/Calender';
-const InputSearch = ({ icon, value, placeHolder, options }) => {
+const InputSearch = ({ setSearch, icon, value, placeHolder, options }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value || '');
   const [isOptionsVisible, setIsOptionsVisible] = useState(false);
@@ -20,14 +20,27 @@ const InputSearch = ({ icon, value, placeHolder, options }) => {
   };
 
   const handleClick = (option) => {
+    if(placeHolder=="From where?" && setSearch){
+      setSearch((prev)=>({...prev, from: option}))
+    }
+    if(placeHolder=="Where to?" && setSearch){
+      setSearch((prev)=>({...prev, to: option}))
+    }
     setSelectedValue(option);
     setIsOptionsVisible(false);
   };
 
   useEffect(() => {
-    console.log(selectedValue);
+    if(placeHolder=="Depart - Return" && setSearch){
+      setSearch((prev)=>({...prev, date: selectedValue}))
+    }
   }, [selectedValue]);
 
+  useEffect(()=>{
+    if( setSearch){
+      setSearch((prev)=>({...prev, count: [adultCount, childCount]}))
+    }
+  },[adultCount, childCount])
   // Close options when clicking outside the input and options
   useEffect(() => {
     const handleClickOutside = (event) => {

@@ -1,3 +1,4 @@
+import LineChart from '@/components/atoms/Chart'
 import React from 'react'
 
 const PricingDetails = ({selectedFlight}) => {
@@ -65,6 +66,18 @@ const PricingDetails = ({selectedFlight}) => {
             </div>
 
             <p className='text-lg text-[#6E7491] mt-10'>Price history</p>
+            
+            <LineChart />
+
+            <p className='text-lg text-[#6E7491] mt-10'>Price Rating <span className='text-white rounded px-2 pb-1 ms-4 bg-[#5CD6C0]'>Buy soon</span></p>
+
+            <div className='text-[#6E7491] mt-4'>
+                We recommend booking soon. The average cost of this flight is $750, but could rise 18% to $885 in two weeks.
+            </div>
+
+            <p className='text-[#A1B0CC] mt-4'>
+                Tripma analyzes thousands of flights, prices, and trends to ensure you get the best deal.
+            </p>
         </>
       }
     </div>

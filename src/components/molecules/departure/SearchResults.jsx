@@ -2,6 +2,8 @@ import React from 'react'
 import Search from './Search'
 import Filters from './Filters'
 import Flights from './Flights'
+import PlacesToStay from './PlacesToStay'
+import AlsoSearchedFor from './AlsoSearchedFor'
 
 const SearchResults = () => {
   return (
@@ -10,6 +12,9 @@ const SearchResults = () => {
       <Filters />
 
       <Flights />
+
+      <PlacesToStay />
+      <AlsoSearchedFor />
     </div>
   )
 }

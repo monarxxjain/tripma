@@ -138,6 +138,69 @@ const Flights = () => {
         },
       ]
     },
+    {
+      id: 6,
+      icon: DeltaAirline,
+      details: [
+        {
+            airline: "Hawaiian Airlines",
+            duration: "16h 45m"
+        },
+        {
+            timing: "7:00AM - 4:15PM"
+        },
+        {
+            waiting: "2h 45m in HNL",
+            stops: "1 stop"
+        },
+        {
+            tripType: "round trip",
+            price: "$624"
+        },
+      ]
+    },
+    {
+      id: 7,
+      icon: DeltaAirline,
+      details: [
+        {
+            airline: "Hawaiian Airlines",
+            duration: "16h 45m"
+        },
+        {
+            timing: "7:00AM - 4:15PM"
+        },
+        {
+            waiting: "2h 45m in HNL",
+            stops: "1 stop"
+        },
+        {
+            tripType: "round trip",
+            price: "$624"
+        },
+      ]
+    },
+    {
+      id: 8,
+      icon: DeltaAirline,
+      details: [
+        {
+            airline: "Hawaiian Airlines",
+            duration: "16h 45m"
+        },
+        {
+            timing: "7:00AM - 4:15PM"
+        },
+        {
+            waiting: "2h 45m in HNL",
+            stops: "1 stop"
+        },
+        {
+            tripType: "round trip",
+            price: "$624"
+        },
+      ]
+    },
     
   ]
   const returningFlights = [
@@ -285,7 +348,7 @@ const Flights = () => {
       <div className='w-8/12 flex flex-col'>
         <p className='text-lg text-[#6E7491] ps-1'>Choose a <span className='text-[#605DEC] fade-in'>{journey}</span> flight</p>
 
-        <section className='p-4 mt-4 max-h-[420px] overflow-y-scroll rounded-xl border border-[#CBD4E6] hide-scroller'>
+        <section className='p-4 mt-4 max-h-[525px] overflow-y-scroll rounded-xl border border-[#CBD4E6] hide-scroller'>
           {selectedFlights.departingFlight==null && departingFlights.map((flight, index)=>{
             return(
               <motion.div

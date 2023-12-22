@@ -34,25 +34,7 @@ const PaymentDetails = () => {
         }
     },[methodDetails])
 
-    const flights = [
-        {
-            name: "Hawaiian Airlines",
-            flightNo: "FIG4312",
-            logo: Airline,
-            time: "16h 45m (+1d)",
-            duration: "7:00 AM - 4:15 PM",
-            wait: "2h 45m in HNL"
-        },
-        {
-            name: "Hawaiian Airlines",
-            flightNo: "FIG4312",
-            logo: Airline,
-            time: "16h 45m (+1d)",
-            duration: "7:00 AM - 4:15 PM",
-            wait: "2h 45m in HNL"
-        },
-    ]
-
+    const flights =  typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("flights")) : null
   return (
     <div className='px-4 sm:px-10 lg:px-24 py-14 xl:flex xl:justify-between gap-12'>
       <div className='text-[#7C8DB0] xl:w-2/3'>

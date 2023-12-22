@@ -8,9 +8,9 @@ import TextField from '@mui/material/TextField'
 import Summary from '@/components/atoms/Summary'
 
 const PassangerInfo = () => {
-    const searchDetails = JSON.parse(localStorage.getItem("searchDetails"))
-    const adultCount = Number(searchDetails.count.slice(0,1))
-    const childCount = Number(searchDetails.count.slice(11,12))
+    const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
+    const adultCount = Number(searchDetails?.count.slice(0,1))
+    const childCount = Number(searchDetails?.count.slice(11,12))
     const totalPassangers = adultCount + childCount
     const [checkedBags, setCheckedBags] = useState(0)
     const [seatSelectActive, setSeatSelectActive] = useState(false)
@@ -45,7 +45,7 @@ const PassangerInfo = () => {
       }
     },[passInfo])
 
-    const flights = JSON.parse(localStorage.getItem("flights"))
+    const flights = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("flights")) : null
 
   return (
     <div className='px-4 sm:px-10 lg:px-24 py-14 gap-16 flex flex-col-reverse md:flex-row md:items-end md:justify-between'>

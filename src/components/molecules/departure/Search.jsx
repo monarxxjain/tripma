@@ -10,7 +10,7 @@ import ProfileIcon from '@/assets/icons/profile-icon.svg'
 const Search = () => {
     const fromOptions = ["SDF", "EWR", "DER", "POI", "YHB", "MNJ"]
     const toOptions = ["SDF", "EWR", "DER", "POI", "YHB", "MNJ"]
-    const searchDetails = JSON.parse(localStorage.getItem("searchDetails"))
+    const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
 
     const [search, setSearch] = useState(searchDetails || {
       from: "",

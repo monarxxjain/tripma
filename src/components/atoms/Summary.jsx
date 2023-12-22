@@ -8,35 +8,35 @@ const Summary = ({flights}) => {
             <div className={`p-2 flex justify-between gap-6 items-start `}>
                 <div className='flex lg:flex-col xl:flex-row gap-2 items-start'>
                     <div>
-                        <Image src={flights.departingFlight.icon} alt='airline Logo' />
+                        <Image src={flights?.departingFlight.icon} alt='airline Logo' />
                     </div>
                     <div>
-                        <p>{flights.departingFlight.details?.airline}</p>
-                        <p className='text-[#7C8DB0] mt-1'>{flights.departingFlight.details?.flightNo}</p>
+                        <p>{flights?.departingFlight.details?.airline}</p>
+                        <p className='text-[#7C8DB0] mt-1'>{flights?.departingFlight.details?.flightNo}</p>
                     </div>
                 </div>
                 <div className='flex flex-col items-end gap-1'>
-                    <div>{flights.departingFlight.details?.duration}</div>
-                    <div className='whitespace-nowrap'>{flights.departingFlight.details?.timing}</div>
-                    <div className='text-[#7C8DB0] whitespace-nowrap'>{flights.departingFlight.details?.waiting}</div>
+                    <div>{flights?.departingFlight.details?.duration}</div>
+                    <div className='whitespace-nowrap'>{flights?.departingFlight.details?.timing}</div>
+                    <div className='text-[#7C8DB0] whitespace-nowrap'>{flights?.departingFlight.details?.waiting}</div>
                 </div>
             </div>
             
             {/* Return Flight */}
-            {flights.returningFlight && <div className={`p-2 border-t border-t-[#E9E8FC] pt-4 flex justify-between items-start `}>
+            {flights?.returningFlight && <div className={`p-2 border-t border-t-[#E9E8FC] pt-4 flex justify-between items-start `}>
                 <div className='flex lg:flex-col xl:flex-row gap-2 items-start'>
                     <div>
-                        <Image src={flights.returningFlight.icon} alt='airline Logo' />
+                        <Image src={flights?.returningFlight.icon} alt='airline Logo' />
                     </div>
                     <div>
-                        <p>{flights.returningFlight.details?.airline}</p>
-                        <p className='text-[#7C8DB0] mt-1'>{flights.returningFlight.details?.flightNo}</p>
+                        <p>{flights?.returningFlight.details?.airline}</p>
+                        <p className='text-[#7C8DB0] mt-1'>{flights?.returningFlight.details?.flightNo}</p>
                     </div>
                 </div>
                 <div className='flex flex-col items-end gap-1'>
-                    <div>{flights.returningFlight.details?.duration}</div>
-                    <div className='whitespace-nowrap'>{flights.returningFlight.details?.timing}</div>
-                    <div className='text-[#7C8DB0] whitespace-nowrap'>{flights.returningFlight.details?.waiting}</div>
+                    <div>{flights?.returningFlight.details?.duration}</div>
+                    <div className='whitespace-nowrap'>{flights?.returningFlight.details?.timing}</div>
+                    <div className='text-[#7C8DB0] whitespace-nowrap'>{flights?.returningFlight.details?.waiting}</div>
                 </div>
             </div>}
         </div>

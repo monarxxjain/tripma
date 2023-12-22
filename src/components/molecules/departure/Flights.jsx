@@ -9,7 +9,7 @@ import JourneyMap from '@/assets/images/journey-map.svg'
 import PricingDetails from './PricingDetails';
 
 const Flights = () => {
-  const flights = JSON.parse(localStorage.getItem("flights"))
+  const flights = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("flights")) : null
   const [journey, setJourney] = useState(flights?.departingFlight ? "arriving" : "departing")
   const departingFlights = [
     {

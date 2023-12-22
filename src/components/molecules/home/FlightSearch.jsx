@@ -15,7 +15,7 @@ const FlightSearch = () => {
       from: "",
       to: "",
       date: "",
-      count: [1,0]
+      count: ""
     })
 
     useEffect(()=>{console.log(search)},[search])
@@ -28,7 +28,7 @@ const FlightSearch = () => {
         <InputSearch setSearch={setSearch} icon={ProfileIcon} placeHolder="1 Adult" />
         <Link href={"/departure"} onClick={()=>{localStorage.setItem("searchDetails", JSON.stringify(search))}} className='hidden xl:block bg-purple-blue h-min text-white rounded-md py-2 px-5 active:scale-95 transition-all'>Search</Link>
       </div>
-      <div className='px-4 sm:px-20'><Link href={"/departure"} onClick={()=>{localStorage.setItem("searchDetails", JSON.stringify(search))}} className='bg-purple-blue xl:hidden h-min w-full text-white rounded-md py-2 px-5 active:scale-95 transition-all'>Search</Link></div>
+      <div className='w-full px-4 sm:px-20'><Link href={"/departure"} className='w-full'><button onClick={()=>{localStorage.setItem("searchDetails", JSON.stringify(search))}} className='bg-purple-blue w-full xl:hidden text-white rounded-md py-2 px-5 active:scale-95 transition-all'>Search</button></Link></div>
     </div>
   )
 }

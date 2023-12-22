@@ -5,8 +5,8 @@ const Summary = ({flights}) => {
     <div className='flex flex-col  mt-11'>
         <div className='rounded-xl border border-[#E9E8FC] p-4 '>
             {/* Departure Flight */}
-            <div className={`p-2 flex justify-between items-start `}>
-                <div className='flex gap-2 items-start'>
+            <div className={`p-2 flex justify-between gap-6 items-start `}>
+                <div className='flex lg:flex-col xl:flex-row gap-2 items-start'>
                     <div>
                         <Image src={flights.departingFlight.icon} alt='airline Logo' />
                     </div>
@@ -17,14 +17,14 @@ const Summary = ({flights}) => {
                 </div>
                 <div className='flex flex-col items-end gap-1'>
                     <div>{flights.departingFlight.details?.duration}</div>
-                    <div>{flights.departingFlight.details?.timing}</div>
-                    <div className='text-[#7C8DB0]'>{flights.departingFlight.details?.waiting}</div>
+                    <div className='whitespace-nowrap'>{flights.departingFlight.details?.timing}</div>
+                    <div className='text-[#7C8DB0] whitespace-nowrap'>{flights.departingFlight.details?.waiting}</div>
                 </div>
             </div>
             
             {/* Return Flight */}
             {flights.returningFlight && <div className={`p-2 border-t border-t-[#E9E8FC] pt-4 flex justify-between items-start `}>
-                <div className='flex gap-2 items-start'>
+                <div className='flex lg:flex-col xl:flex-row gap-2 items-start'>
                     <div>
                         <Image src={flights.returningFlight.icon} alt='airline Logo' />
                     </div>
@@ -35,8 +35,8 @@ const Summary = ({flights}) => {
                 </div>
                 <div className='flex flex-col items-end gap-1'>
                     <div>{flights.returningFlight.details?.duration}</div>
-                    <div>{flights.returningFlight.details?.timing}</div>
-                    <div className='text-[#7C8DB0]'>{flights.returningFlight.details?.waiting}</div>
+                    <div className='whitespace-nowrap'>{flights.returningFlight.details?.timing}</div>
+                    <div className='text-[#7C8DB0] whitespace-nowrap'>{flights.returningFlight.details?.waiting}</div>
                 </div>
             </div>}
         </div>

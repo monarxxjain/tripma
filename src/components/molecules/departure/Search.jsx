@@ -22,13 +22,15 @@ const Search = () => {
     useEffect(()=>{console.log(search)},[search])
   return (
     <div>
-      <div className='flight-search items-center relative xl:flex w-min'>
+      <div className='flight-search relative grid grid-cols-1 sm:grid-cols-2 gap-y-1 xl:gap-0 xl:flex'>
         <InputSearch setSearch={setSearch} icon={FromFlight} value={search.from} placeHolder="From where?" options={fromOptions} />
         <InputSearch setSearch={setSearch} icon={ToFlight} value={search.to} placeHolder="Where to?" options={toOptions} />
         <InputSearch setSearch={setSearch} icon={CalenderIcon} value={search.date} placeHolder="Depart - Return" />
         <InputSearch setSearch={setSearch} icon={ProfileIcon} value={"1 Adult"} placeHolder="1 Adult" />
-        <Link href={"/departure"} className='hidden xl:block bg-purple-blue h-min text-white rounded-md py-2.5 px-5 active:scale-95 transition-all'>Search</Link>
+        <Link href={"/departure"} onClick={()=>{localStorage.setItem("searchDetails", JSON.stringify(search))}} className='hidden xl:block bg-purple-blue h-min text-white rounded-md py-2.5 px-5 active:scale-95 transition-all'>Search</Link>
       </div>
+      <div className='w-full mt-5'><Link href={"/departure"} className='w-full'><button onClick={()=>{localStorage.setItem("searchDetails", JSON.stringify(search))}} className='bg-purple-blue w-full xl:hidden text-white rounded-md py-2 px-5 active:scale-95 transition-all'>Search</button></Link></div>
+
     </div>
   )
 }

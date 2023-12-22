@@ -38,7 +38,7 @@ const InputSearch = ({ setSearch, icon, value, placeHolder, options }) => {
 
   useEffect(()=>{
     if( setSearch){
-      setSearch((prev)=>({...prev, count: [adultCount, childCount]}))
+      setSearch((prev)=>({...prev, count: `${adultCount} Adults ${childCount>0 ? "& "+ childCount + " Child" : ""}`}))
     }
   },[adultCount, childCount])
   // Close options when clicking outside the input and options

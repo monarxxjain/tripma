@@ -30,11 +30,11 @@ const Filters = () => {
         },
     ]
   return (
-    <div  className='custom-dropdown flex gap-4 mt-6'>
+    <div  className='custom-dropdown flex overflow-x-scroll gap-4 mt-6 hide-scroller'>
         {filters.map((filter, index)=>{
             const dropDown = useRef()
             return (
-                <div key={index} className='py-2 px-3 flex justify-between rounded border border-[#CBD4E6]'>
+                <div key={index} className='py-2 px-3 shrink-0 flex justify-between rounded border border-[#CBD4E6]'>
                     <select  ref={dropDown} className='z-10 bg-transparent'>
                         <option value="">{filter.name}</option>
                         {filter.options.map((option, id)=>{

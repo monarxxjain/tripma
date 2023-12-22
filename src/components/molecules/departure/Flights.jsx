@@ -225,8 +225,8 @@ const Flights = () => {
   },[selectedFlights])
 
   return (
-    <section className='flex justify-between gap-10 mt-12'>
-      <div className='w-8/12 flex flex-col'>
+    <section className='flex flex-col lg:flex-row justify-between gap-10 mt-12'>
+      <div className='lg:w-8/12 flex flex-col'>
         <p className='text-lg text-[#6E7491] ps-1'>Choose a <span className='text-[#605DEC] fade-in'>{journey}</span> flight</p>
 
         <section className='p-4 mt-4 max-h-[525px] overflow-y-scroll rounded-xl border border-[#CBD4E6] hide-scroller'>
@@ -263,7 +263,7 @@ const Flights = () => {
         <Image src={JourneyMap} className='w-full mt-12' />
       </div>
 
-      <div className='w-4/12'>
+      <div className='lg:w-4/12 mb-10'>
         <PricingDetails selectedFlight={selectedFlights} />
       </div>
     </section>

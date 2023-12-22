@@ -67,7 +67,7 @@ const Navbar = () => {
         </div>
       </section>
 
-      <section className={`fixed overflow-y-scroll hide-scroller top-0 h-screen w-full bg-white/40 z-10 flex items-center justify-center ${displaySignUpPopup ? "fade-in" : popupCloseAnimation}`}>
+      <section className={`fixed overflow-y-scroll hide-scroller top-0 h-screen w-full bg-white/40 flex items-center justify-center z-50 ${displaySignUpPopup ? "fade-in" : popupCloseAnimation}`}>
         <div className="bg-white rounded-xl max-w-xl top-1/2 p-10 w-fit full-shadow flex flex-col gap-2">
           <div className='flex flex-col gap-3'>
             <div className='flex justify-between items-center gap-2'>

@@ -23,6 +23,10 @@
   box-shadow: 0 0 10px -1px #7C8DB0;
 }
 
+.medium-shadow{
+  box-shadow: 0 0 20px -6px #7C8DB0;
+}
+
 .hide-scroller::-webkit-scrollbar{
   display: none;
 }

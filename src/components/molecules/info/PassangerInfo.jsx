@@ -8,6 +8,10 @@ import TextField from '@mui/material/TextField'
 import Summary from '@/components/atoms/Summary'
 
 const PassangerInfo = () => {
+    const searchDetails = JSON.parse(localStorage.getItem("searchDetails"))
+    const adultCount = Number(searchDetails.count.slice(0,1))
+    const childCount = Number(searchDetails.count.slice(11,12))
+    const totalPassangers = adultCount + childCount
     const [checkedBags, setCheckedBags] = useState(0)
     const [seatSelectActive, setSeatSelectActive] = useState(false)
     const [passInfo, setPassInfo] = useState({
@@ -126,7 +130,7 @@ const PassangerInfo = () => {
                         onChange={(e)=>{setPassInfo(prevState=>({...prevState, redressNo: e.target.value}))}}
                     />
                     <TextField
-                        label="Known traveller number*"
+                        label="Known traveller number"
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
@@ -224,7 +228,7 @@ const PassangerInfo = () => {
       </div>
 
       <div className='md:w-1/2 flex flex-col md:items-end'>
-            <div className='mb-10 md:mb-28 flex flex-col gap-8'>
+            <div className='mb-10 md:mb-28 flex flex-col gap-8 w-full'>
                 <div className='xl:self-end'>
                     <Summary flights={flights}/>
                 </div>

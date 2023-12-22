@@ -7,7 +7,7 @@ import AlsoSearchedFor from './AlsoSearchedFor'
 
 const SearchResults = () => {
   return (
-    <div className='px-4 sm:px-10 lg:px-24 py-14'>
+    <div className='px-4 sm:px-10 xl:px-24 py-14'>
       <Search />
       <Filters />
 

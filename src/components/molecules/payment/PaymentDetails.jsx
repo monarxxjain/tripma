@@ -166,7 +166,7 @@ const PaymentDetails = () => {
                     <Summary flights={flights}/>
                 </div>
                 <div className='xl:self-end'>          
-                    <button className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${paymentAllowance ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Confirm and pay</button>
+                    <Link href={"/confirmation"} className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${paymentAllowance ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Confirm and pay</Link>
                 </div>
             </div>
       </div>

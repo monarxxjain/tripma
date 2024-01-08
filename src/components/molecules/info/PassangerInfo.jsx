@@ -6,6 +6,7 @@ import Luggage from '@/assets/images/Luggage.svg'
 import Airline from '@/assets/images/airline.png'
 import TextField from '@mui/material/TextField'
 import Summary from '@/components/atoms/Summary'
+import CountryCode from '@/components/atoms/countryCode/CountryCode'
 
 const PassangerInfo = () => {
     const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
@@ -39,8 +40,9 @@ const PassangerInfo = () => {
 
             suffix: "",
             dob: "",
-
             email: "",
+
+            countryCode: "",
             phoneNo: "",
 
             redressNo: "",
@@ -142,8 +144,6 @@ const PassangerInfo = () => {
                                 <p className='mt-1 text-xs'>MM/DD/YY</p>
 
                             </div>
-                        </div>
-                        <div className='flex gap-6'>
                             <TextField
                                 label="Email address"
                                 id="outlined-size-small"
@@ -152,8 +152,13 @@ const PassangerInfo = () => {
                                 onChange={(e)=>{editPassangerDetails(e.target.value, index, "email")}}
                                 required
                             />
+                        </div>
+                        <div className='flex gap-6'>
+                            
+                            <CountryCode handler={editPassangerDetails} index={index} />
                             <TextField
                                 label="Phone number"
+                                type='number'
                                 id="outlined-size-small"
                                 defaultValue=""
                                 size="small"

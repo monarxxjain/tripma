@@ -54,11 +54,12 @@ const PassangerInfo = () => {
       })
 
     useEffect(()=>{
+        
+        if( passInfo.emergencyDetails.emergencyFirstName!='' && passInfo.emergencyDetails.emergencyFirstName!=null && passInfo.emergencyDetails.emergencyLastName!='' && passInfo.emergencyDetails.emergencyEmail!='' && passInfo.emergencyDetails.emergencyPhoneNo!='') {
+            setSeatSelectActive(true)
+        }
         console.log(passInfo)
-      if(passInfo.firstName!='' && passInfo.lastName!='' && passInfo.dob!='' && passInfo.email!='' && passInfo.phoneNo!='' && passInfo.knownTravellerNo!='' && passInfo.emergencyFirstName!='' && passInfo.emergencyLastName!='' && passInfo.emergencyEmail!='' && passInfo.emergencyPhoneNo!='') {
-        setSeatSelectActive(true)
-      }
-    //   console.log(passInfo.passangers[`passanger1`])
+        
     },[passInfo])
 
     const editPassangerDetails = (value, index, field) => {
@@ -358,7 +359,7 @@ const PassangerInfo = () => {
 
         <div className='flex gap-6 mt-10 md:mt-20'>
             <button className='text-lg px-5 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and close</button>
-            <Link href={"/booking"} onClick={()=>{localStorage.setItem("passangerDetails",  JSON.stringify(passInfo))}} className={`text-lg px-5 py-3 rounded border ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Select seats</Link>
+            <Link href={"/booking"} onClick={()=>{localStorage.setItem("passangerDetails",  JSON.stringify(passInfo))}} className={`text-lg px-5 py-3 rounded border ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d] pointer-events-none"} `}>Select seats</Link>
         </div>
       </div>
 
@@ -368,7 +369,7 @@ const PassangerInfo = () => {
                     <Summary flights={flights}/>
                 </div>
                 <div className='self-end'>          
-                    <Link href={"/booking"} onClick={()=>{localStorage.setItem("passangerDetails",  JSON.stringify(passInfo))}} className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d]"} `}>Select seats</Link>
+                    <Link href={"/booking"} onClick={()=>{localStorage.setItem("passangerDetails",  JSON.stringify(passInfo))}} className={`text-lg px-5 py-3 rounded border text-[#7C8DB0] ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d] pointer-events-none"} `}>Select seats</Link>
                 </div>
             </div>
             <Image src={Luggage} alt='Luggage Dimensions' />

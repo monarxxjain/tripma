@@ -33,7 +33,7 @@ const SeatInfo = ({selectedSeat, setSelectedSeat}) => {
                 <p className='text-lg text-[#6E7491] font-semibold'>Economy</p>
                 {selectedSeat.seatType=="Economy" && <div className='purple-gradient text-white rounded font-semibold flex items-center justify-center px-[6px]'>Selected</div>}
             </div>
-            <Image src={EconomySeats} />
+            <Image alt='Economy' src={EconomySeats} />
             <div className='flex flex-col gap-4 px-3 md:ps-10 self-start'>
                 <div className='hidden md:flex gap-4'>
                     <p className='text-lg text-[#6E7491] font-semibold'>Economy</p>
@@ -66,7 +66,7 @@ const SeatInfo = ({selectedSeat, setSelectedSeat}) => {
                 <p className='text-lg text-[#6E7491] font-semibold'>Business</p>
                 {selectedSeat.seatType=="Business" && <div className='green-gradient text-white rounded font-semibold flex items-center justify-center px-[6px]'>Selected</div>}
             </div>
-            <Image src={BusinessSeats} />
+            <Image alt='Business' src={BusinessSeats} />
             <div className='flex flex-col gap-4 px-3 md:ps-10 self-start'>
                 <div className='hidden md:flex gap-4'>
                     <p className='text-lg text-[#6E7491] font-semibold'>Business</p>

@@ -33,22 +33,22 @@ const Plane = ({selectedSeat, setSelectedSeat}) => {
   return (
     <div className='relative py-10 xl:py-0 overflow-x-hidden '>
       <div className='flex items-center justify-center xl:justify-start'>
-        <Image src={PlaneImage} className='relative overflow-x-hidden h-[1830px] min-w-[2000px] xl:min-w-[1200px] xl:h-auto xl:w-[150vw] xl:ms-[-25vw] z-10' />
+        <Image alt="Plane" src={PlaneImage} className='relative overflow-x-hidden h-[1830px] min-w-[2000px] xl:min-w-[1200px] xl:h-auto xl:w-[150vw] xl:ms-[-25vw] z-10' />
       </div>
       
-      <Image src={PlaneEngine} className='hidden xl:block absolute w-[9vw] top-1/2 transform -translate-y-[12vw] z-0'/>
-      <Image src={PlaneEngine} className='hidden xl:block absolute w-[9vw] top-1/2 left-1/2 transform -translate-x-[8vw] -translate-y-[12vw] z-0'/>
-      <Image src={LeftPilot} className='hidden xl:block absolute w-[3.7vw] top-[10vw] left-1/4 -translate-x-[3.9vw] z-20'/>
-      <Image src={RightPilot} className='hidden xl:block absolute w-[3.7vw] top-[10vw] left-1/4 z-20'/>
-      <Image src={PlaneInnerBody} className='hidden xl:block absolute w-[10.5vw] top-[13vw] left-1/4 -translate-x-[5.25vw] z-20'/>
+      <Image alt="Engine" src={PlaneEngine} className='hidden xl:block absolute w-[9vw] top-1/2 transform -translate-y-[12vw] z-0'/>
+      <Image alt="Engine" src={PlaneEngine} className='hidden xl:block absolute w-[9vw] top-1/2 left-1/2 transform -translate-x-[8vw] -translate-y-[12vw] z-0'/>
+      <Image alt="Pilot" src={LeftPilot} className='hidden xl:block absolute w-[3.7vw] top-[10vw] left-1/4 -translate-x-[3.9vw] z-20'/>
+      <Image alt="Pilot" src={RightPilot} className='hidden xl:block absolute w-[3.7vw] top-[10vw] left-1/4 z-20'/>
+      <Image alt="PlaneBody" src={PlaneInnerBody} className='hidden xl:block absolute w-[10.5vw] top-[13vw] left-1/4 -translate-x-[5.25vw] z-20'/>
       
-      <Image src={PlaneEngine} className='xl:hidden absolute w-[90px] md:w-[120px] top-1/2 transform left-[10vw] lg:left-[16vw] -translate-y-[15vw] lg:-translate-y-[12vw] z-0'/>
-      <Image src={PlaneEngine} className='xl:hidden absolute w-[90px] md:w-[120px] top-1/2 transform right-[10vw] lg:right-[16vw] -translate-y-[15vw] lg:-translate-y-[12vw] z-0'/>
+      <Image alt="Engine" src={PlaneEngine} className='xl:hidden absolute w-[90px] md:w-[120px] top-1/2 transform left-[10vw] lg:left-[16vw] -translate-y-[15vw] lg:-translate-y-[12vw] z-0'/>
+      <Image alt="Engine" src={PlaneEngine} className='xl:hidden absolute w-[90px] md:w-[120px] top-1/2 transform right-[10vw] lg:right-[16vw] -translate-y-[15vw] lg:-translate-y-[12vw] z-0'/>
       <div className='xl:hidden absolute z-20 flex gap-1 left-1/2 -translate-x-[60px] top-[190px]'>
-        <Image src={LeftPilot} className=' w-[60px]'/>
-        <Image src={RightPilot} className=' w-[60px] '/>
+        <Image alt="Pilot" src={LeftPilot} className=' w-[60px]'/>
+        <Image alt="Pilot" src={RightPilot} className=' w-[60px] '/>
       </div>
-      <Image src={PlaneInnerBody} className='xl:hidden absolute w-[158px] xl:w-[10.5vw] top-[230px] xl:top-[15vw] left-1/2 -translate-x-[78px] xl:-translate-x-[5.25vw] z-20'/>
+      <Image alt="PlaneBody" src={PlaneInnerBody} className='xl:hidden absolute w-[158px] xl:w-[10.5vw] top-[230px] xl:top-[15vw] left-1/2 -translate-x-[78px] xl:-translate-x-[5.25vw] z-20'/>
 
       {/* Business Class */}
       <div className='absolute top-[340px] xl:top-[20vw] left-1/2 -translate-x-[70px] xl:left-1/4 xl:-translate-x-[4.6vw] z-20'>
@@ -150,7 +150,7 @@ const EconomyRow = ({index, isExitRow, selectedSeat, setSelectedSeat}) => {
   return (
     <div>
       {isExitRow && <div className='flex gap-1'>
-        <Image src={InfoIcon} />
+        <Image alt='Info' src={InfoIcon} />
         <p className='text-[10px] xl:text-xs text-[#7C8DB0]'>Exit row</p>
       </div>}
       <div className='flex justify-between items-center gap-[2px] xl:gap-1 my-1.5 xl:my-2'>

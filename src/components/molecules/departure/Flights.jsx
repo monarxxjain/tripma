@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import  HawaiianAirline from '@/assets/images/Airlines/Hawaiian.png'
 import  JapanAirline from '@/assets/images/Airlines/Japan.png'
 import  DeltaAirline from '@/assets/images/Airlines/Delta.png'
-import JourneyMap from '@/assets/images/journey-map.svg'
+import JourneyMap from '@/assets/images/world-map.svg'
 import PricingDetails from './PricingDetails';
 
 const Flights = () => {
@@ -259,8 +259,9 @@ const Flights = () => {
         </section>
 
         <button className='text-lg self-end px-5 py-3 mt-6 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Show all flights</button>
-
-        <Image src={JourneyMap} className='w-full mt-12' />
+        
+        <div></
+        <Image src={JourneyMap} className='w-full mt-12 bg-[#E9E8FC] rounded border border-[#CBD4E6]' />
       </div>
 
       <div className='lg:w-4/12 mb-10'>

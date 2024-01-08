@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { motion } from "framer-motion";
 import  HawaiianAirline from '@/assets/images/Airlines/Hawaiian.png'
@@ -133,13 +133,130 @@ const Flights = () => {
         price: "$624"
       }
     },
+    {
+      id: 9,
+      icon: HawaiianAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 10,
+      icon: JapanAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 11,
+      icon: HawaiianAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 12,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 13,
+      icon: JapanAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 14,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 15,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 16,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 17,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
     
   ]
   const returningFlights = [
     {
       id: 0,
       icon: HawaiianAirline,
-      details: {
+      details: {        
         airline: "Hawaiian Airlines",
         duration: "16h 45m",
         timing: "7:00AM - 4:15PM",
@@ -152,7 +269,7 @@ const Flights = () => {
     {
       id: 1,
       icon: JapanAirline,
-      details: {
+      details: {        
         airline: "Hawaiian Airlines",
         duration: "16h 45m",
         timing: "7:00AM - 4:15PM",
@@ -165,7 +282,7 @@ const Flights = () => {
     {
       id: 2,
       icon: HawaiianAirline,
-      details: {
+      details: {        
         airline: "Hawaiian Airlines",
         duration: "16h 45m",
         timing: "7:00AM - 4:15PM",
@@ -178,7 +295,7 @@ const Flights = () => {
     {
       id: 3,
       icon: DeltaAirline,
-      details: {
+      details: {        
         airline: "Hawaiian Airlines",
         duration: "16h 45m",
         timing: "7:00AM - 4:15PM",
@@ -191,7 +308,7 @@ const Flights = () => {
     {
       id: 4,
       icon: JapanAirline,
-      details: {
+      details: {        
         airline: "Hawaiian Airlines",
         duration: "16h 45m",
         timing: "7:00AM - 4:15PM",
@@ -204,7 +321,163 @@ const Flights = () => {
     {
       id: 5,
       icon: DeltaAirline,
-      details: {
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 6,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 7,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 8,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 9,
+      icon: HawaiianAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 10,
+      icon: JapanAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 11,
+      icon: HawaiianAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 12,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 13,
+      icon: JapanAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 14,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 15,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 16,
+      icon: DeltaAirline,
+      details: {        
+        airline: "Hawaiian Airlines",
+        duration: "16h 45m",
+        timing: "7:00AM - 4:15PM",
+        waiting: "2h 45m in HNL",
+        stops: "1 stop",
+        tripType: "round trip",
+        price: "$624"
+      }
+    },
+    {
+      id: 17,
+      icon: DeltaAirline,
+      details: {        
         airline: "Hawaiian Airlines",
         duration: "16h 45m",
         timing: "7:00AM - 4:15PM",
@@ -216,13 +489,21 @@ const Flights = () => {
     },
     
   ]
-
+  const bottomScroller = useRef()
+  const [flightCount, setFlightCount] = useState(7)
 
   const [selectedFlights, setSelectedFlights] = useState(flights || {
     departingFlight: null,
     returningFlight: null
   })
   console.log(selectedFlights)
+
+  const fetchMoreFlights = () => {
+    setFlightCount(flightCount+6);  
+    setTimeout(() => {
+      bottomScroller.current.scrollBy({ top: 1000, behavior: 'smooth' });
+    }, 20)
+  }
 
   useEffect(()=>{
     console.log(selectedFlights)
@@ -233,8 +514,9 @@ const Flights = () => {
       <div className='lg:w-8/12 flex flex-col'>
         <p className='text-lg text-[#6E7491] ps-1'>Choose a <span className='text-[#605DEC] fade-in'>{journey}</span> flight</p>
 
-        <section className='p-4 mt-4 max-h-[525px] overflow-y-scroll rounded-xl border border-[#CBD4E6] hide-scroller'>
+        <section className='p-4 mt-4 max-h-[525px] overflow-y-scroll scroll-smooth rounded-xl border border-[#CBD4E6] hide-scroller' ref={bottomScroller} >
           {selectedFlights.departingFlight==null && departingFlights.map((flight, index)=>{
+            if(index < flightCount)
             return(
               <motion.div
                 key={index}
@@ -248,7 +530,7 @@ const Flights = () => {
             )
           })}
           {selectedFlights.departingFlight!=null && returningFlights.map((flight, index)=>{
-            return(
+            if(index < flightCount) return(
               <motion.div
                 key={index}
                 initial={{ opacity: 0, x: "500px", y: "0px" }}
@@ -260,9 +542,10 @@ const Flights = () => {
               </motion.div>
             )
           })}
+          <p className='text-[1px] invisible'>k</p>
         </section>
 
-        <button className='text-lg self-end px-5 py-3 mt-6 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Show all flights</button>
+        <button onClick={()=>{fetchMoreFlights()}} className='text-lg self-end px-5 py-3 mt-6 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Show all flights</button>
         
         <div className='relative w-fit mt-12'>
           <Image src={JourneyMap} className=' bg-[#E9E8FC] rounded border border-[#CBD4E6]' />

@@ -1,6 +1,16 @@
-import React from 'react'
+"use client"
+import React, { useRef, useState } from 'react';
 import Link from 'next/link'
-import { BsArrowRight } from 'react-icons/bs'
+import { BsArrowRight } from 'react-icons/bs';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+import { Autoplay, Pagination } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
 import Card from '@/components/atoms/Card'
 import Deal1 from '@/assets/images/FlightDeals/deal1.png'
 import Deal2 from '@/assets/images/FlightDeals/deal2.png'
@@ -22,7 +32,25 @@ const FlightDeals = () => {
             <Card type="deal" image={Deal3} heading="Kōdaiji Temple" city=", Kyoto" amount="$633" description={"Step back in time in the Gion district"} />
         </div>
         <div>
-            <Card type="deal" image={Deal4} heading="Tsavo East National Park" city=", Kenya" amount="$1,248" description={"Named after the Tsavo River, and opened in April 1984, Tsavo East National Park is one of the oldest parks in Kenya. It is located in the semi-arid Taru Desert."} />
+        <Swiper
+          spaceBetween={30}
+          centeredSlides={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true
+          }}
+          navigation={true}
+          modules={[Pagination]}
+          className="mySwiper shadow-md rounded-xl pb-5"
+        >
+            <SwiperSlide><Card type="deal" variant="carousel" image={Deal4} heading="Tsavo East National Park" city=", Kenya" amount="$1,248" description={"Named after the Tsavo River, and opened in April 1984, Tsavo East National Park is one of the oldest parks in Kenya. It is located in the semi-arid Taru Desert."} /></SwiperSlide>
+            <SwiperSlide><Card type="deal" variant="carousel" image={Deal4} heading="Tsavo East National Park" city=", Kenya" amount="$1,248" description={"Named after the Tsavo River, and opened in April 1984, Tsavo East National Park is one of the oldest parks in Kenya. It is located in the semi-arid Taru Desert."} /></SwiperSlide>
+            <SwiperSlide><Card type="deal" variant="carousel" image={Deal4} heading="Tsavo East National Park" city=", Kenya" amount="$1,248" description={"Named after the Tsavo River, and opened in April 1984, Tsavo East National Park is one of the oldest parks in Kenya. It is located in the semi-arid Taru Desert."} /></SwiperSlide>
+          </Swiper>
         </div>
       </section>
     </div>

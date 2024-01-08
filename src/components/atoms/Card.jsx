@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
 
-const Card = ({type, image, heading, city, amount, description}) => {
+const Card = ({type,variant, image, heading, city, amount, description}) => {
   return (
-    <div className='rounded-xl shadow-md'>
+    <div className={`rounded-xl ${variant=="carousel" ? "pb-5": "shadow-md"}`}>
       <Image src={image} className='rounded-t-xl w-full' />
       <div className='py-4 px-6 flex flex-col'>
         <div className='flex gap-4 justify-between items-center text-[#6E7491] font-semibold'>

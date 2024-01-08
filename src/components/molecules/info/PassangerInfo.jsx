@@ -20,6 +20,7 @@ const PassangerInfo = () => {
         const passangerDetails = {
             passangers: [],
             emergencyDetails: {
+                sameAsPass: "passanger1",
                 emergencyFirstName: "",
                 emergencyLastName: "",
                 emergencyEmail: "",
@@ -55,6 +56,7 @@ const PassangerInfo = () => {
       if(passInfo.firstName!='' && passInfo.lastName!='' && passInfo.dob!='' && passInfo.email!='' && passInfo.phoneNo!='' && passInfo.knownTravellerNo!='' && passInfo.emergencyFirstName!='' && passInfo.emergencyLastName!='' && passInfo.emergencyEmail!='' && passInfo.emergencyPhoneNo!='') {
         setSeatSelectActive(true)
       }
+    //   console.log(passInfo.passangers[`passanger1`])
     },[passInfo])
 
     const editPassangerDetails = (value, index, field) => {
@@ -68,6 +70,17 @@ const PassangerInfo = () => {
             }
         ))
     }
+
+    const editEmergencyDetails = (value, field) => {
+        setPassInfo(prevState => (
+            {
+                ...prevState, emergencyDetails: {
+                    ...prevState.emergencyDetails, [field]: value
+                }
+            }
+        ))
+    }
+
     
     const flights = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("flights")) : null
 
@@ -247,14 +260,29 @@ const PassangerInfo = () => {
 
                 <div className='flex gap-2 items-center'>
                     <input type='checkbox' onChange={(e)=>{
-                        if(e.target.checked){
-                            setPassInfo(prevState=>({...prevState, emergencyFirstName: passInfo.firstName, emergencyLastName: passInfo.lastName, emergencyEmail: passInfo.email, emergencyPhoneNo: passInfo.phoneNo}))
+                        if(e.target.checked){   
+                            editEmergencyDetails( passInfo.passangers[passInfo.emergencyDetails.sameAsPass]?.firstName, "emergencyFirstName" )
+                            editEmergencyDetails( passInfo.passangers[passInfo.emergencyDetails.sameAsPass]?.lastName, "emergencyLastName" )
+                            editEmergencyDetails( passInfo.passangers[passInfo.emergencyDetails.sameAsPass]?.email, "emergencyEmail" )
+                            editEmergencyDetails( passInfo.passangers[passInfo.emergencyDetails.sameAsPass]?.phoneNo, "emergencyPhoneNo" )
                         }
                         else{
-                            setPassInfo(prevState=>({...prevState, emergencyFirstName: '', emergencyLastName: '', emergencyEmail: '', emergencyPhoneNo: ''}))
+                            editEmergencyDetails( "", "emergencyFirstName")
+                            editEmergencyDetails( "", "emergencyLastName")
+                            editEmergencyDetails( "", "emergencyEmail")
+                            editEmergencyDetails( "", "emergencyPhoneNo")
                         }
                     }} />
-                    <label className='mb-0.5'>Same as Passenger 1</label>
+                    <label className='mb-0.5'>Same as 
+                        <select onChange={(e)=>{editEmergencyDetails(`passanger${e.target.value}`, "sameAsPass")}}>
+                            {adultForms.map((option, id) => (
+                                <option key={id} value={option+1}>
+                                Passanger {" " + (option+1)}
+                                </option>
+                            ))}
+                        </select>
+
+                    </label>
                 </div>
                 <div className='flex gap-6'>
                     <TextField
@@ -262,8 +290,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
-                        value={passInfo.emergencyFirstName}
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyFirstName: e.target.value}))}}
+                        value={passInfo.emergencyDetails.emergencyFirstName}
+                        onChange={(e)=>{editEmergencyDetails(e.target.value, "emergencyFirstName")}}
                         required
                     />
                     <TextField
@@ -271,8 +299,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
-                        value={passInfo.emergencyLastName}
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyLastName: e.target.value}))}}
+                        value={passInfo.emergencyDetails.emergencyLastName}
+                        onChange={(e)=>{editEmergencyDetails(e.target.value, "emergencyLastName")}}
                         required
                     />
                 </div>
@@ -282,8 +310,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
-                        value={passInfo.emergencyEmail}
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyEmail: e.target.value}))}}
+                        value={passInfo.emergencyDetails.emergencyEmail}
+                        onChange={(e)=>{editEmergencyDetails(e.target.value, "emergencyEmail")}}
                         required
                     />
                     <TextField
@@ -291,8 +319,8 @@ const PassangerInfo = () => {
                         id="outlined-size-small"
                         defaultValue=""
                         size="small"
-                        value={passInfo.emergencyPhoneNo}
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, emergencyPhoneNo: e.target.value}))}}
+                        value={passInfo.emergencyDetails.emergencyPhoneNo}
+                        onChange={(e)=>{editEmergencyDetails(e.target.value, "emergencyPhoneNo")}}
                         required
                     />
                 </div>

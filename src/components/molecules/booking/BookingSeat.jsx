@@ -7,11 +7,11 @@ const BookingSeat = ({selectedSeat, setSelectedSeat, journey, setJourney}) => {
   const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
     const dummyBookingData = {
         from: {
-            value: searchDetails.from,
+            value: searchDetails?.from,
             address: "California, US"
         },
         to: {
-            value: searchDetails.to,
+            value: searchDetails?.to,
             address: "Tokyo, Japan"
         },
         departDetails: {

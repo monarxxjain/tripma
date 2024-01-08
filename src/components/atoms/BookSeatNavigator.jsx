@@ -13,15 +13,15 @@ const BookSeatNavigator = ({from, to, departDetails, arrivalDetails, journey, se
     <div className='bg-[#27273F] sticky flex flex-col md:flex-row items-center justify-between'>
       <div className='flex items-center justify-between w-full'>
         <div className='py-5 px-8 text-[#FAFAFA]'>
-            <p className='text-2xl font-extrabold'>{from.value}</p>
-            <p>{from.address}</p>
+            <p className='text-2xl font-extrabold'>{journey === 'Departing' ? from.value : to.value}</p>
+            <p className='whitespace-nowrap'>{from.address}</p>
         </div>
         <div className='py-5'>
             <Image src={RightArrow} />
         </div>
         <div className='py-5 px-8 text-[#FAFAFA]'>
-            <p className='text-2xl font-extrabold'>{to.value}</p>
-            <p>{to.address}</p>
+            <p className='text-2xl font-extrabold'>{journey === 'Departing' ? to.value : from.value}</p>
+            <p className='whitespace-nowrap'>{to.address}</p>
         </div>
       </div>
 

@@ -6,10 +6,14 @@ import  HawaiianAirline from '@/assets/images/Airlines/Hawaiian.png'
 import  JapanAirline from '@/assets/images/Airlines/Japan.png'
 import  DeltaAirline from '@/assets/images/Airlines/Delta.png'
 import JourneyMap from '@/assets/images/world-map.svg'
+import PlaneIcon from '@/assets/icons/plane-small.svg'
+import LocationPoint from '@/assets/icons/location-point.svg'
+import FlightPath from '@/assets/icons/flight-path.svg'
 import PricingDetails from './PricingDetails';
 
 const Flights = () => {
   const flights = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("flights")) : null
+  const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
   const [journey, setJourney] = useState(flights?.departingFlight ? "arriving" : "departing")
   const departingFlights = [
     {
@@ -237,7 +241,7 @@ const Flights = () => {
                 initial={{ opacity: 0, x: "500px", y: "0px" }}
                 animate={{ opacity: 1, x: "0", y: "0px" }}
                 exit={{ opacity: 0, x: "0px", y: "0px" }}
-                transition={{ duration: 0.5+(0.09*index) }}
+                transition={{ duration: 0.8+(0.09*index) }}
               >
                 <Flight tripType={journey} flight={flight} selectedFlight={selectedFlights} setSelectedFlights={setSelectedFlights} setJourney={setJourney} />
               </motion.div>
@@ -250,7 +254,7 @@ const Flights = () => {
                 initial={{ opacity: 0, x: "500px", y: "0px" }}
                 animate={{ opacity: 1, x: "0", y: "0px" }}
                 exit={{ opacity: 0, x: "0px", y: "0px" }}
-                transition={{ duration: 0.5+(0.09*index) }}
+                transition={{ duration: 0.8+(0.09*index) }}
               >
                 <Flight tripType={journey} flight={flight} selectedFlight={selectedFlights} setSelectedFlights={setSelectedFlights} />
               </motion.div>
@@ -260,8 +264,15 @@ const Flights = () => {
 
         <button className='text-lg self-end px-5 py-3 mt-6 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Show all flights</button>
         
-        <div></
-        <Image src={JourneyMap} className='w-full mt-12 bg-[#E9E8FC] rounded border border-[#CBD4E6]' />
+        <div className='relative w-fit mt-12'>
+          <Image src={JourneyMap} className=' bg-[#E9E8FC] rounded border border-[#CBD4E6]' />
+          <Image src={LocationPoint} className='absolute top-1/2 left-[33.2%] w-[5px] translate-y-[1vw]' />
+          <Image src={LocationPoint} className='absolute top-1/2 left-[60.5%] w-[5px] translate-y-1' />
+          <Image src={FlightPath} className='absolute top-1/2 left-1/3 -translate-y-2 translate-x-1 w-[27%]' />
+          <Image src={PlaneIcon} className={`absolute top-1/2 left-1/2 -translate-x-[2vw] -translate-y-5 ${journey=="departing" ? "rotate-180" : ""}`} />
+          <p className='absolute top-1/2 left-[33.5%] translate-y-4 text-xs text-[#1513A0] font-bold'>{searchDetails.from}</p>
+          <p className='absolute top-1/2 text-xs left-[57%] translate-y-2 text-[#1513A0] font-bold'>{searchDetails.to}</p>
+        </div>
       </div>
 
       <div className='lg:w-4/12 mb-10'>

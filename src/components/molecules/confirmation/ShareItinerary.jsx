@@ -22,8 +22,7 @@ const ShareItinerary = () => {
         key={emailInputs.length} // Make sure to assign a unique key to each component
       />
     );
-
-    setEmailInputs([...emailInputs, newTextField]);
+      if(emailInputs.length<3) setEmailInputs([...emailInputs, newTextField]);
   };
 
   return (

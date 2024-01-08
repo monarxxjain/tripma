@@ -4,13 +4,14 @@ import SeatInfo from './SeatInfo'
 import SubmitBooking from './SubmitBooking'
 
 const BookingSeat = ({selectedSeat, setSelectedSeat, journey, setJourney}) => {
+  const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
     const dummyBookingData = {
         from: {
-            value: "SFO",
+            value: searchDetails.from,
             address: "California, US"
         },
         to: {
-            value: "NRT",
+            value: searchDetails.to,
             address: "Tokyo, Japan"
         },
         departDetails: {

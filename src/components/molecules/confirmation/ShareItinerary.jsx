@@ -15,7 +15,7 @@ const ShareItinerary = () => {
   const addTextField = () => {
     const newTextField = (
       <TextField
-        label="New Email"
+        label="Email address"
         id="outlined-size-small"
         defaultValue=""
         size="small"

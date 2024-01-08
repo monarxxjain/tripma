@@ -10,33 +10,45 @@ import Summary from '@/components/atoms/Summary'
 const PassangerInfo = () => {
     const searchDetails = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("searchDetails")) : null
     const adultCount = Number(searchDetails?.count.slice(0,1))
+    const adultForms = Array.from({ length: adultCount }, (_, index) => index);
     const childCount = Number(searchDetails?.count.slice(11,12))
+    const childForms = Array.from({ length: childCount }, (_, index) => index);
     const totalPassangers = adultCount + childCount
     const [checkedBags, setCheckedBags] = useState(0)
     const [seatSelectActive, setSeatSelectActive] = useState(false)
-    const [passInfo, setPassInfo] = useState({
-        firstName: "",
-        middleName: "",
-        lastName: "",
+    const [passInfo, setPassInfo] = useState(() => {
+        const passangerDetails = {
+            passangers: [],
+            emergencyDetails: {
+                emergencyFirstName: "",
+                emergencyLastName: "",
+                emergencyEmail: "",
+                emergencyPhoneNo: "",
+            },
+            bags: ""
+        };
+      
+        for (let i = 1; i <= totalPassangers; i++) {
+          passangerDetails.passangers[`passanger${i}`] = {
+            passangerType: "",
 
-        suffix: "",
-        dob: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
 
-        email: "",
-        phoneNo: "",
+            suffix: "",
+            dob: "",
 
-        redressNo: "",
-        knownTravellerNo: "",
+            email: "",
+            phoneNo: "",
 
-        emergencyFirstName: "",
-        emergencyLastName: "",
-        emergencyEmail: "",
-        emergencyPhoneNo: "",
-
-
-        bags: ""
-        
-    })
+            redressNo: "",
+            knownTravellerNo: ""
+          };
+        }
+      
+        return passangerDetails;
+      })
 
     useEffect(()=>{
         console.log(passInfo)
@@ -45,6 +57,18 @@ const PassangerInfo = () => {
       }
     },[passInfo])
 
+    const editPassangerDetails = (value, index, field) => {
+        setPassInfo(prevState=>(
+            {
+                ...prevState,  passangers: {
+                    ...prevState.passangers, [`passanger${index + 1}`]: {
+                        ...prevState.passangers[`passanger${index + 1}`], [field]: value
+                    }
+                }
+            }
+        ))
+    }
+    
     const flights = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("flights")) : null
 
   return (
@@ -54,91 +78,169 @@ const PassangerInfo = () => {
         <p className='mt-4'>Enter the required information for each traveler and be sure that it exactly matches the government-issued ID presented at the airport.</p>
         
         <form>
-            <div className='flex flex-col gap-6'>
-                <h4 className='text-[#6E7491] font-semibold text-lg mt-9'>Passenger 1 (Adult)</h4>
+            {adultForms.map((form, index)=>{
+                
+                return (
+                    <div key={index} className='flex flex-col gap-6'>
+                        <h4 className='text-[#6E7491] font-semibold text-lg mt-9'>Passenger {index+1} (Adult)</h4>
 
-                <div className='flex gap-6'>
-                    <TextField
-                        label="First name"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        size="small"
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, firstName: e.target.value}))}}
-                        required
-                    />
-                    <TextField
-                        label="Middle name"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, middleName: e.target.value}))}}
-                        size="small"
-                    />
-                    <TextField
-                        label="Last name"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        size="small"
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, lastName: e.target.value}))}}
-                        required
-                    />
-                </div>
-                <div className='flex gap-6'>
-                    <TextField
-                        label="Suffix"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, suffix: e.target.value}))}}
-                        size="small"
-                    />
-                    <div>
-                        <TextField
-                            label="Date of birth"
-                            id="outlined-size-small"
-                            defaultValue=""
-                            size="small"
-                            onChange={(e)=>{setPassInfo(prevState=>({...prevState, dob: e.target.value}))}}
-                            required
-                        />
-                        <p className='mt-1 text-xs'>MM/DD/YY</p>
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="First name"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "firstName"); editPassangerDetails("Adult", index, "passangerType")}}
+                                required
+                            />
+                            <TextField
+                                label="Middle name"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "middleName")}}
+                                size="small"
+                            />
+                            <TextField
+                                label="Last name"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "lastName")}}
+                                required
+                            />
+                        </div>
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="Suffix"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "suffix")}}
+                                size="small"
+                            />
+                            <div>
+                                <TextField
+                                    label="Date of birth"
+                                    id="outlined-size-small"
+                                    defaultValue=""
+                                    size="small"
+                                    onChange={(e)=>{editPassangerDetails(e.target.value, index, "dob")}}
+                                    required
+                                />
+                                <p className='mt-1 text-xs'>MM/DD/YY</p>
 
+                            </div>
+                        </div>
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="Email address"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "email")}}
+                                required
+                            />
+                            <TextField
+                                label="Phone number"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "phoneNo")}}
+                                required
+                            />
+                        </div>
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="Redress number"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "redressNo")}}
+                            />
+                            <TextField
+                                label="Known traveller number"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, index, "knownTravellerNo")}}
+                                required
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className='flex gap-6'>
-                    <TextField
-                        label="Email address"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        size="small"
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, email: e.target.value}))}}
-                        required
-                    />
-                    <TextField
-                        label="Phone number"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        size="small"
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, phoneNo: e.target.value}))}}
-                        required
-                    />
-                </div>
-                <div className='flex gap-6'>
-                    <TextField
-                        label="Redress number"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        size="small"
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, redressNo: e.target.value}))}}
-                    />
-                    <TextField
-                        label="Known traveller number"
-                        id="outlined-size-small"
-                        defaultValue=""
-                        size="small"
-                        onChange={(e)=>{setPassInfo(prevState=>({...prevState, knownTravellerNo: e.target.value}))}}
-                        required
-                    />
-                </div>
-            </div>
+                )
+            })}
+
+            {childForms.map((form, index)=>{
+                
+                return (
+                    <div key={index} className='flex flex-col gap-6'>
+                        <h4 className='text-[#6E7491] font-semibold text-lg mt-9'>Passenger {adultCount + index+1} (Minor)</h4>
+
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="First name"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "firstName"); editPassangerDetails("Minor", adultCount + index, "passangerType")}}
+                                required
+                            />
+                            <TextField
+                                label="Middle name"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "middleName")}}
+                                size="small"
+                            />
+                            <TextField
+                                label="Last name"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "lastName")}}
+                                required
+                            />
+                        </div>
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="Suffix"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "suffix")}}
+                                size="small"
+                            />
+                            <div>
+                                <TextField
+                                    label="Date of birth"
+                                    id="outlined-size-small"
+                                    defaultValue=""
+                                    size="small"
+                                    onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "dob")}}
+                                    required
+                                />
+                                <p className='mt-1 text-xs'>MM/DD/YY</p>
+
+                            </div>
+                        </div>
+                        <div className='flex gap-6'>
+                            <TextField
+                                label="Redress number"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "redressNo")}}
+                            />
+                            <TextField
+                                label="Known traveller number"
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "knownTravellerNo"); editPassangerDetails(e.target.value, adultCount + index, "phoneNo");}}
+                                required
+                            />
+                        </div>
+                    </div>
+                )
+            })}
 
             <div className='flex flex-col gap-6'>
                 <h4 className='text-[#6E7491] font-semibold text-lg mt-12'>Emergency contact information</h4>

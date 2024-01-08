@@ -496,7 +496,6 @@ const Flights = () => {
     departingFlight: null,
     returningFlight: null
   })
-  console.log(selectedFlights)
 
   const fetchMoreFlights = () => {
     setFlightCount(flightCount+6);  
@@ -553,8 +552,8 @@ const Flights = () => {
           <Image src={LocationPoint} className='absolute top-1/2 left-[60.5%] w-[5px] translate-y-1' />
           <Image src={FlightPath} className='absolute top-1/2 left-1/3 -translate-y-2 translate-x-1 w-[27%]' />
           <Image src={PlaneIcon} className={`absolute top-1/2 left-1/2 -translate-x-[2vw] -translate-y-5 ${journey=="departing" ? "rotate-180" : ""}`} />
-          <p className='absolute top-1/2 left-[33.5%] translate-y-4 text-xs text-[#1513A0] font-bold'>{searchDetails.from}</p>
-          <p className='absolute top-1/2 text-xs left-[57%] translate-y-2 text-[#1513A0] font-bold'>{searchDetails.to}</p>
+          <p className='absolute top-1/2 left-[33.5%] translate-y-4 text-xs text-[#1513A0] font-bold'>{searchDetails?.from}</p>
+          <p className='absolute top-1/2 text-xs left-[57%] translate-y-2 text-[#1513A0] font-bold'>{searchDetails?.to}</p>
         </div>
       </div>
 

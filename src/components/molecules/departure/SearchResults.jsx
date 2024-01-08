@@ -11,7 +11,7 @@ const SearchResults = () => {
       <Search />
       <Filters />
 
-      {/* <Flights /> */}
+      <Flights />
 
       <PlacesToStay />
       <AlsoSearchedFor />

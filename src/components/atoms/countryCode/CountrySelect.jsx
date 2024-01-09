@@ -8,7 +8,7 @@ import CountryFlag from './CountryFlag'
 
 
 
-export default function CountryCode({handler, index}) {
+export default function CountrySelect({handler, index}) {
 
   //console.log(countries)
   return (
@@ -20,7 +20,7 @@ export default function CountryCode({handler, index}) {
             size="small"
             options={countries}
             autoHighlight
-            getOptionLabel={(option) => `${option.label} +${option.phone}`}
+            getOptionLabel={(option) => `${option.label} `}
             renderOption={(props, option) => {
                 const { key, ...restProps } = props;
                 return (
@@ -38,13 +38,13 @@ export default function CountryCode({handler, index}) {
               
             onChange={(event, value) => {
                 // Use the selected value directly, no need for event.target.value
-                handler(value, index, "countryCode");
+                handler(value, index, "countryOfPassIssue");
               }}
             renderInput={(params) => (
                 <TextField
                 {...params}
                 className=''
-                label="Country Code"
+                label="Country of Issue"
                 inputProps={{
                     ...params.inputProps,
                     autoComplete: 'new-password', // disable autocomplete and autofill

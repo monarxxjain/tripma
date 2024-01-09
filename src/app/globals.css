@@ -260,3 +260,14 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+.dob .MuiFormControl-root .MuiInputBase-formControl .MuiInputBase-inputAdornedEnd{
+  padding: 8px 14px !important;
+}
+
+@media (min-width: 100px){
+  .dob .MuiFormControl-root .MuiInputBase-formControl .MuiInputBase-inputAdornedEnd{
+    padding: 8px 14px !important;
+  }
+
+}

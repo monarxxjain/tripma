@@ -35,7 +35,7 @@ const ShareItinerary = () => {
           {emailInputs}
           <div className='flex gap-4 items-center'>
             <button className='py-3 px-5 bg-purple-blue text-white hover:shadow-xl active:scale-95 transition-all rounded'>Email itinerary</button>
-            <button className='py-3 px-5 text-[#605DEC] border-white hover:border-[#605DEC] hover:border rounded active:bg-[#5f5dec2c] transition-all' onClick={()=>addTextField()}>Add another</button>
+            <button className={`py-3 px-5  transition-all ${emailInputs.length>=3 ? "text-gray-700 border rounded border-[#3a404a59] bg-[#cbd4e64d] pointer-events-none" : "text-[#605DEC] border-white hover:border-[#605DEC] hover:border rounded active:bg-[#5f5dec2c]"}`} onClick={()=>addTextField()}>Add another</button>
           </div>
         </div>
       </div>

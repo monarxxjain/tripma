@@ -216,9 +216,10 @@ const PassangerInfo = () => {
                                  <LocalizationProvider dateAdapter={AdapterDayjs}>
                                     <DatePicker
                                         renderInput={(props) => (
-                                            <TextField {...props} size="small"  className="h-1"/> // Set the size to "small"
+                                            <TextField {...props} size="small"  className="h-1"/> 
                                         )}
                                         defaultValue={dayjs()}
+                                        onChange={(date)=>{editPassangerDetails(date[`$d`], index, "dob")}}
                                     />
                                 </LocalizationProvider>
                                 <p className='mt-1 text-xs text-right w-full lg:text-left'>Date of Birth (MM/DD/YY)</p>
@@ -239,6 +240,7 @@ const PassangerInfo = () => {
                                     <RadioGroup
                                         aria-labelledby="demo-form-control-label-placement"
                                         name="position"
+                                        onChange={(e)=>{editPassangerDetails(e.target.value, index, "gender")}}
                                     >
                                         <div className='flex -mt-1'>
                                             <FormControlLabel 
@@ -325,6 +327,7 @@ const PassangerInfo = () => {
                                                 <TextField {...props} size="small"  className="h-1" placeholder='Select a date'/> // Set the size to "small"
                                             )}
                                             defaultValue={dayjs()}
+                                            onChange={(date)=>{editPassangerDetails(date[`$d`], index, "passportExp")}}
                                         />
                                     </LocalizationProvider>
                                     <p className='mt-1 text-xs'>Passport Expiry</p>

@@ -50,7 +50,9 @@ const PassangerInfo = () => {
                 emergencyEmail: "",
                 emergencyPhoneNo: "",
             },
-            bags: ""
+            bags: "",
+            agreeTnC: false,
+            getPromotionalMails: false
         };
       
         for (let i = 1; i <= totalPassangers; i++) {
@@ -84,8 +86,12 @@ const PassangerInfo = () => {
 
     useEffect(()=>{
         
-        if( passInfo.emergencyDetails.emergencyFirstName!='' && passInfo.emergencyDetails.emergencyFirstName!=null && passInfo.emergencyDetails.emergencyLastName!='' && passInfo.emergencyDetails.emergencyEmail!='' && passInfo.emergencyDetails.emergencyPhoneNo!='') {
+        if( passInfo.emergencyDetails.emergencyFirstName!='' && passInfo.emergencyDetails.emergencyFirstName!=null && passInfo.emergencyDetails.emergencyLastName!='' && passInfo.emergencyDetails.emergencyEmail!='' && passInfo.emergencyDetails.emergencyPhoneNo!='' && passInfo.agreeTnC) {
             setSeatSelectActive(true)
+        }
+        else{
+            setSeatSelectActive(false)
+
         }
         console.log(passInfo)
         
@@ -377,17 +383,70 @@ const PassangerInfo = () => {
                                 onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "suffix")}}
                                 size="small"
                             />
-                            <div>
-                                <TextField
-                                    label="Date of birth"
-                                    id="outlined-size-small"
-                                    defaultValue=""
-                                    size="small"
-                                    onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "dob")}}
-                                    required
-                                />
-                                <p className='mt-1 text-xs'>MM/DD/YY</p>
+                            <div className='dob'>
+                                 <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                    <DatePicker
+                                        renderInput={(props) => (
+                                            <TextField {...props} size="small"  className="h-1"/> 
+                                        )}
+                                        defaultValue={dayjs()}
+                                        onChange={(date)=>{editPassangerDetails(date[`$d`], adultCount + index, "dob")}}
+                                    />
+                                </LocalizationProvider>
+                                <p className='mt-1 text-xs text-right w-full lg:text-left'>Date of Birth (MM/DD/YY)</p>
 
+                            </div>
+                            <TextField
+                                label="Email address"
+                                type='email'
+                                id="outlined-size-small"
+                                defaultValue=""
+                                size="small"
+                                onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "email")}}
+                                required
+                            />
+                            <div>
+                                <p className='text-sm'>Gender</p>
+                                <div className='flex gap-4'>
+                                    <RadioGroup
+                                        aria-labelledby="demo-form-control-label-placement"
+                                        name="position"
+                                        onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "gender")}}
+                                    >
+                                        <div className='flex -mt-1'>
+                                            <FormControlLabel 
+                                                value="Male" 
+                                                control={<Radio className='h-min' 
+                                                            sx={{
+                                                                color: "#605DEC",
+                                                                '&.Mui-checked': {
+                                                                    color: "#605DEC",
+                                                                },
+                                                                }} 
+                                                            size="small"
+                                                        />
+                                                } 
+                                                label="Male" 
+                                            />
+                                            <FormControlLabel 
+                                                value="Female" 
+                                                control={<Radio className='h-min' 
+                                                            sx={{
+                                                                color: "#605DEC",
+                                                                '&.Mui-checked': {
+                                                                    color: "#605DEC",
+                                                                },
+                                                                }} 
+                                                            size="small"
+                                                        />
+                                                } 
+                                                label="Female" 
+                                            />
+
+                                        </div>
+                                    </RadioGroup>
+
+                                </div>
                             </div>
                         </div>
                         <div className='flex gap-6'>
@@ -406,6 +465,32 @@ const PassangerInfo = () => {
                                 onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "knownTravellerNo"); editPassangerDetails(e.target.value, adultCount + index, "phoneNo");}}
                                 required
                             />
+                        </div>
+                        <div>
+                            <p className='text-sm mb-1'>Travel Documents</p>
+                            <div className='grid grid-cols-2 xl:grid-cols-3 gap-6'>
+                                <CountrySelect handler={editPassangerDetails} index={adultCount + index} />
+                                <TextField
+                                    label="Passport number"
+                                    id="outlined-size-small"
+                                    defaultValue=""
+                                    size="small"
+                                    onChange={(e)=>{editPassangerDetails(e.target.value, adultCount + index, "passportNo")}}
+                                    required
+                                />
+                                <div className='dob'>
+                                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                                        <DatePicker
+                                            renderInput={(props) => (
+                                                <TextField {...props} size="small"  className="h-1" placeholder='Select a date'/> // Set the size to "small"
+                                            )}
+                                            defaultValue={dayjs()}
+                                            onChange={(date)=>{editPassangerDetails(date[`$d`], adultCount + index, "passportExp")}}
+                                        />
+                                    </LocalizationProvider>
+                                    <p className='mt-1 text-xs'>Passport Expiry</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 )
@@ -507,7 +592,18 @@ const PassangerInfo = () => {
 
         </div>
 
-        <div className='flex gap-6 mt-10 md:mt-20'>
+        <div className='mt-10'>
+            <div className='flex gap-3 items-center'>
+                <input type='checkbox' onChange={(e)=>{setPassInfo(prevState => ({...prevState, agreeTnC: e.target.checked}))}} />
+                <label>I agree to the <a href='#'>Terms & Conditions</a></label>
+            </div>
+            <div className='flex gap-3 items-center'>
+                <input type='checkbox' onChange={(e)=>{setPassInfo(prevState => ({...prevState, getPromotionalMails: e.target.checked}))}} />
+                <label>Yes, I want to receive promotional emails</label>
+            </div>
+        </div>
+
+        <div className='flex gap-6 mt-10'>
             <button className='text-lg px-5 py-3 rounded text-purple-blue border border-[#605DEC] active:scale-95 transition-transform hover:bg-[#5f5dec10] hover:shadow'>Save and close</button>
             <Link href={"/booking"} onClick={()=>{localStorage.setItem("passangerDetails",  JSON.stringify(passInfo))}} className={`text-lg px-5 py-3 rounded border ${seatSelectActive ? "bg-purple-blue text-white active:scale-95 transition-transform" : "border-[#7C8DB0] bg-[#cbd4e64d] pointer-events-none"} `}>Select seats</Link>
         </div>
